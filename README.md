@@ -3,7 +3,7 @@
 ## 👥 Integrantes
 * **Ana Beatriz Gonçalves Bastos**
 
-## 🚀 Sobre o Projeto
+## 🚀 Sobre o Projeto(Sem integração prévia com Backend, as tecnologias serão alteradas e implementadas conforme decorrer do projeto)
 O projeto consiste em um ecossistema completo com três níveis de acesso, permitindo a gestão financeira, de eventos e de serviços em um ambiente unificado.
 
 ## 📂 Organização do Código
@@ -15,3 +15,4 @@ O projeto segue a seguinte strutura de **Código**:
 * `auth.js`: Simulação de banco de dados e controle de sessão de usuários, acessar para ver os E-mails e senhas do Login.
 
 ---
+**[LINK POSTADO: https://wecorpenterprise.netlify.app/](https://wecorpenterprise.netlify.app/)**
