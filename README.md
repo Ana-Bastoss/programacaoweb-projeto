@@ -8,7 +8,7 @@ O projeto consiste em um ecossistema completo com três níveis de acesso, permi
 
 ## 📂 Organização do Código
 O projeto segue a seguinte strutura de **Código**:
-* `index.html` / `servicos.html` \ `evento-detalhes.html`: Páginas de interface pública.
+* `index.html` / `servicos.html` / `evento-detalhes.html`: Páginas de interface pública.
 * `style.css`: Estilização centralizada e padronizada.
 * `main.js`: Separação do script das páginas públicas.
 * `dashboard.js`: Lógica de navegação interna dos painéis administrativos, dos parceiros e prestadores.
