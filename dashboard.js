@@ -1,9 +1,9 @@
 // =========================================
-// 🎛️ SCRIPTS DOS DASHBOARDS (dashboard.js)
+// SCRIPTS DOS DASHBOARDS (dashboard.js)
 // Controla as abas, submenus e modais dos painéis de Admin, Parceiro e Prestador.
 // =========================================
 
-// 📂 Função para abrir e fechar os submenus laterais (Ex: Parceiros > Gestão de Eventos)
+// Função para abrir e fechar os submenus laterais (Ex: Parceiros > Gestão de Eventos)
 function toggleSubmenu(menuId) {
     const menu = document.getElementById(menuId);
     if (menu) {
@@ -11,7 +11,7 @@ function toggleSubmenu(menuId) {
     }
 }
 
-// 📑 Função mágica que troca as abas do painel sem recarregar a página
+// Função mágica que troca as abas do painel sem recarregar a página
 function showTab(tabName) {
     // 1. Esconde todo o conteúdo de todas as abas
     document.querySelectorAll('.admin-tab-content').forEach(tab => {
@@ -37,7 +37,7 @@ function showTab(tabName) {
     }
 }
 
-// 🪟 Funções para abrir as janelas flutuantes (Modais de Perfil, Criação, etc)
+// Funções para abrir as janelas flutuantes (Modais de Perfil, Criação, etc)
 function openProfileModal(modalId) {
     const modal = document.getElementById(modalId);
     if (modal) {
@@ -45,7 +45,7 @@ function openProfileModal(modalId) {
     }
 }
 
-// ❌ Função para fechar todas as janelas flutuantes
+// Função para fechar todas as janelas flutuantes
 function closeModals() {
     document.querySelectorAll('.modal-overlay').forEach(modal => {
         modal.classList.remove('active');
