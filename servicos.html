@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços - WE Corp</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="site-background-gradient"></div>
+
+    <header class="navbar-direct">
+        <div class="navbar-content">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="logo.png" alt="WE CORP Logo" class="logo-img">
+                </a>
+            </div>
+            <nav>
+                <a href="index.html#eventos">Eventos</a>
+                <a href="servicos.html" style="color: var(--theme-teal-main);">Serviços</a>
+                <a href="index.html#sobre">Sobre nós</a>
+                <a href="index.html#parceiros">Parceiros</a>
+                <button id="btnOpenLogin" class="btn-login">Minha conta</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="services-section">
+            <h2>Nossos Serviços</h2>
+            
+            <div class="search-wrapper">
+                <div class="search-container">
+                    <div class="input-group-search">
+                        <label>Pesquisar</label>
+                        <input type="text" placeholder="Buscar serviço ou empresa..." class="search-input">
+                    </div>
+                    
+                    <div class="input-group-search">
+                        <label>Setor</label>
+                        <select class="filter-select">
+                            <option value="all">Todos os Setores</option>
+                            <option value="engenharia">Engenharia</option>
+                            <option value="tecnologia">Tecnologia</option>
+                            <option value="educacao">Educação</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group-search">
+                        <label>Avaliação</label>
+                        <select class="filter-select">
+                            <option value="highest">Mais Altas (5 Estrelas)</option>
+                            <option value="all">Todas as Avaliações</option>
+                            <option value="4up">4 Estrelas ou mais</option>
+                        </select>
+                    </div>
+                    
+                    <button class="btn-search"><i class="fas fa-filter"></i> Filtrar</button>
+                </div>
+            </div>
+
+            <div class="services-block recommendations-block">
+                <h3 class="section-subtitle"><i class="fas fa-star highlight-icon"></i> Recomendações do Mês</h3>
+                <div class="services-grid">
+                    <div class="service-card highlight-card">
+                        <div class="service-header">
+                            <span class="tag">Tecnologia</span>
+                            <div class="service-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> <span>(5.0)</span>
+                            </div>
+                        </div>
+                        <h4>Consultoria em Cibersegurança e Redes</h4>
+                        <p class="service-provider">por <strong>TechSecurity Admin</strong></p>
+                        <p class="service-desc">Análise de vulnerabilidades, configuração de firewalls e reestruturação de redes corporativas com foco em proteção de dados.</p>
+                        <button class="btn-service" onclick="openServiceModal()">Ver Detalhes <i class="fas fa-arrow-right"></i></button>
+                    </div>
+
+                    <div class="service-card highlight-card">
+                        <div class="service-header">
+                            <span class="tag">Engenharia</span>
+                            <div class="service-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> <span>(4.9)</span>
+                            </div>
+                        </div>
+                        <h4>Projeto de Infraestrutura Ágil</h4>
+                        <p class="service-provider">por <strong>BuildTech Engenharia</strong></p>
+                        <p class="service-desc">Planejamento e execução de projetos de infraestrutura inteligente para ambientes corporativos modernos e sustentáveis.</p>
+                        <button class="btn-service" onclick="openServiceModal()">Ver Detalhes <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="services-block">
+                <h3 class="section-subtitle">Explorar Serviços</h3>
+                <div class="services-grid general-grid">
+                    
+                    <div class="service-card">
+                        <div class="service-header">
+                            <span class="tag">Educação</span>
+                            <div class="service-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> <span>(4.2)</span>
+                            </div>
+                        </div>
+                        <h4>Treinamento em Metodologias Ágeis</h4>
+                        <p class="service-provider">por <strong>EducaPro Corp</strong></p>
+                        <p class="service-desc">Capacitação completa para equipes em metodologias como Scrum e Kanban para escalar a produtividade do seu negócio.</p>
+                        <button class="btn-service" onclick="openServiceModal()">Ver Detalhes <i class="fas fa-arrow-right"></i></button>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-header">
+                            <span class="tag">Tecnologia</span>
+                            <div class="service-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> <span>(4.7)</span>
+                            </div>
+                        </div>
+                        <h4>Desenvolvimento de Sistemas Cloud</h4>
+                        <p class="service-provider">por <strong>CloudSys IT</strong></p>
+                        <p class="service-desc">Criação de soluções personalizadas hospedadas em nuvem, garantindo alta disponibilidade e segurança para seus clientes.</p>
+                        <button class="btn-service" onclick="openServiceModal()">Ver Detalhes <i class="fas fa-arrow-right"></i></button>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-header">
+                            <span class="tag">Engenharia</span>
+                            <div class="service-rating">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> <span>(4.0)</span>
+                            </div>
+                        </div>
+                        <h4>Auditoria Estrutural e de Processos</h4>
+                        <p class="service-provider">por <strong>NovaEng Soluções</strong></p>
+                        <p class="service-desc">Serviço especializado em auditoria de plantas industriais e mapeamento de riscos operacionais.</p>
+                        <button class="btn-service" onclick="openServiceModal()">Ver Detalhes <i class="fas fa-arrow-right"></i></button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="logo.png" alt="WE CORP Logo" class="footer-logo">
+                <p>We empower your enterprise</p>
+            </div>
+            <div class="footer-links">
+                <h4>Navegação</h4>
+                <a href="index.html#eventos">Eventos</a>
+                <a href="servicos.html">Serviços</a>
+                <a href="index.html#sobre">Sobre nós</a>
+            </div>
+            <div class="footer-social">
+                <h4>Redes Sociais</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="modalServicoDetalhes" class="modal-overlay">
+        <div class="admin-profile-modal" style="max-width: 950px; max-height: 90vh; overflow-y: auto;">
+            <button class="close-modal" onclick="closeServiceModal()"><i class="fas fa-times"></i></button>
+            
+            <div class="modal-header-profile" style="border-bottom: none; margin-bottom: 10px;">
+                <h2>Consultoria em Cibersegurança e Redes</h2>
+                <p>Oferecido por: <strong style="color: var(--theme-teal-elegant);">TechSecurity Admin</strong> <span class="tag" style="margin-left: 10px; background: #e0f7fa; color: #00838f;">Tecnologia</span></p>
+            </div>
+
+            <div class="event-grid-layout" style="gap: 30px; grid-template-columns: 1.5fr 1fr;">
+                
+                <div>
+                    <div class="info-section" style="padding: 20px; margin-bottom: 25px;">
+                        <h3>Sobre o Serviço</h3>
+                        <p style="font-size: 0.95rem; color: #555;">A TechSecurity Admin é especialista em proteger ativos digitais empresariais. Nossa consultoria inclui análise de vulnerabilidades, configuração de firewalls e reestruturação de redes corporativas com foco em proteção de dados e compliance com a LGPD.</p>
+                    </div>
+
+                    <div class="info-section" style="padding: 20px;">
+                        <h3>Avaliações de Clientes</h3>
+                        
+                        <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 25px; background: #fdfdfd; padding: 15px; border-radius: 10px; border: 1px solid #eee;">
+                            <h1 style="margin: 0; color: #f39c12; font-size: 3rem; line-height: 1;">5.0</h1>
+                            <div>
+                                <div style="color: #f39c12; font-size: 1.2rem;">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
+                                <span style="color: #666; font-size: 0.85rem;">Baseado em 12 avaliações</span>
+                            </div>
+                        </div>
+
+                        <div class="reviews-list" style="margin-bottom: 30px;">
+                            <div class="review-item" style="border-bottom: 1px solid #eee; padding-bottom: 15px; margin-bottom: 15px;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                                    <strong>Carlos E. <span style="font-size: 0.8rem; color: #aaa; font-weight: normal; margin-left: 5px;">- Há 2 semanas</span></strong>
+                                    <span style="color: #f39c12; font-size: 0.8rem;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                                </div>
+                                <p style="font-size: 0.9rem; color: #555;">Serviço excelente! Identificaram falhas críticas na nossa rede que nem imaginávamos. Recomendo muito o trabalho deles.</p>
+                            </div>
+                            
+                            <div class="review-item" style="border-bottom: 1px solid #eee; padding-bottom: 15px; margin-bottom: 15px;">
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                                    <strong>Juliana M. <span style="font-size: 0.8rem; color: #aaa; font-weight: normal; margin-left: 5px;">- Há 1 mês</span></strong>
+                                    <span style="color: #f39c12; font-size: 0.8rem;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                                </div>
+                                <p style="font-size: 0.9rem; color: #555;">O processo foi muito transparente do início ao fim. O relatório de LGPD ajudou nossa empresa a evitar problemas graves.</p>
+                            </div>
+                        </div>
+
+                        <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; border: 1px dashed #ccc;">
+                            <h4 style="margin-bottom: 10px; color: #333;">Deixe sua avaliação</h4>
+                            <div class="star-rating-input" style="color: #ccc; font-size: 1.5rem; margin-bottom: 15px; cursor: pointer;">
+                                <i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                            </div>
+                            <textarea class="search-input" rows="3" placeholder="Conte-nos como foi sua experiência com este serviço..." style="margin-bottom: 10px; resize: none;"></textarea>
+                            <button class="btn-search" style="padding: 8px 20px; font-size: 0.9rem;" onclick="alert('Obrigado! Sua avaliação foi enviada para publicação.');">Publicar Avaliação</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="checkout-col">
+                    <div class="checkout-card" style="position: sticky; top: 0; padding: 25px;">
+                        <h3 style="margin-bottom: 5px;">Pedir Orçamento</h3>
+                        <p style="font-size: 0.85rem; color: #666; text-align: center; margin-bottom: 25px;">Preencha os dados e a empresa entrará em contato.</p>
+
+                        <form style="display: flex; flex-direction: column; gap: 15px;">
+                            <div class="input-group-search">
+                                <label style="font-size: 0.8rem; color: #555;">Nome Completo</label>
+                                <input type="text" class="search-input" placeholder="Seu nome">
+                            </div>
+                            <div class="input-group-search">
+                                <label style="font-size: 0.8rem; color: #555;">E-mail</label>
+                                <input type="email" class="search-input" placeholder="exemplo@email.com">
+                            </div>
+                            <div class="input-group-search">
+                                <label style="font-size: 0.8rem; color: #555;">Telefone / WhatsApp</label>
+                                <input type="tel" class="search-input" placeholder="(00) 00000-0000">
+                            </div>
+                            <div class="input-group-search">
+                                <label style="font-size: 0.8rem; color: #555;">Sua necessidade (Opcional)</label>
+                                <textarea class="search-input" rows="2" style="resize: none;" placeholder="Do que você precisa?"></textarea>
+                            </div>
+                            
+                            <button type="button" class="btn-search" style="width: 100%; height: 50px; margin-top: 10px;" onclick="alert('Orçamento solicitado! A TechSecurity entrará em contato em breve.')"><i class="fas fa-paper-plane" style="margin-right: 5px;"></i> Enviar Solicitação</button>
+                        </form>
+
+                        <div style="text-align: center; margin: 20px 0; position: relative;">
+                            <hr style="border: none; border-top: 1px solid #ddd;">
+                            <span style="background: white; padding: 0 10px; color: #aaa; font-size: 0.8rem; position: absolute; top: -10px; left: 50%; transform: translateX(-50%);">OU CONTATE AGORA</span>
+                        </div>
+
+                        <button class="btn-search" style="width: 100%; height: 50px; background-color: #25D366; color: white;" onclick="window.open('https://wa.me/5511999999999', '_blank')">
+                            <i class="fab fa-whatsapp" style="font-size: 1.3rem; margin-right: 8px;"></i> Falar no WhatsApp
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="loginModal" class="modal-overlay">
+        <div class="login-container">
+            <button class="close-modal"><i class="fas fa-times"></i></button>
+            <div class="login-art">
+                <img src="login.png" alt="Arte WE Corp" class="login-bg-image">
+            </div>
+            <div class="login-form-box">
+                <h2>Login</h2>
+                <form id="formLogin">
+                    <div class="input-group">
+                        <label>E-mail</label>
+                        <input type="email" id="emailLogin" placeholder="Digite seu e-mail" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Senha</label>
+                        <input type="password" id="senhaLogin" placeholder="Digite sua senha" required>
+                    </div>
+                    <a href="#" class="forgot-pass">Esqueci minha senha</a>
+                    <button type="submit" class="btn-submit">Acessar</button>
+                </form>
+                <div class="register-link">
+                    <p>Ainda não possui uma conta?</p>
+                    <button id="btnSwitchToRegister" class="btn-register">Criar conta</button>
+                </div>
+                <div class="social-login">
+                    <a href="#"><i class="fab fa-facebook social-icon-fb"></i></a>
+                    <a href="#"><i class="fab fa-google social-icon-g"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="registerModal" class="modal-overlay">
+        <div class="login-container">
+            <button class="close-modal"><i class="fas fa-times"></i></button>
+            <div class="login-art">
+                <img src="login.png" alt="Arte WE Corp" class="login-bg-image">
+            </div>
+            <div class="login-form-box">
+                <h2>Criar Conta</h2>
+                <form>
+                    <div class="input-group">
+                        <label>Nome Completo</label>
+                        <input type="text" placeholder="Digite seu nome">
+                    </div>
+                    <div class="input-group">
+                        <label>E-mail</label>
+                        <input type="email" placeholder="Digite seu e-mail">
+                    </div>
+                    <div class="input-group">
+                        <label>Senha</label>
+                        <input type="password" placeholder="Crie uma senha">
+                    </div>
+                    <button type="submit" class="btn-submit" style="margin-top: 15px;">Cadastrar</button>
+                </form>
+                <div class="register-link">
+                    <p>Já possui uma conta?</p>
+                    <button id="btnSwitchToLogin" class="btn-register">Fazer Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script src="auth.js"></script>
+</body>
+</html>

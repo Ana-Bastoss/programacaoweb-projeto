@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WE Corp - We empower your enterprise</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="site-background-gradient"></div>
+
+    <header class="navbar-direct">
+        <div class="navbar-content">
+            <div class="logo">
+                <img src="logo.png" alt="WE CORP Logo" class="logo-img">
+            </div>
+            <nav>
+                <a href="#eventos">Eventos</a>
+                <a href="servicos.html">Serviços</a>
+                <a href="#sobre">Sobre nós</a>
+                <a href="#parceiros">Parceiros</a>
+                <button id="btnOpenLogin" class="btn-login">Minha conta</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="sobre" class="hero-section">
+            <h1>A empresa que ajuda o seu negócio a crescer</h1>
+            <p class="subtitle">A WE Corp é uma empresa que acredita na criação de conexões para expansão dos negócios.Promover a visibilidade da sua marca e te ajudar a causar impacto no mercado é o nosso objetivo!</p>
+            
+            <div class="cards-grid">
+                <div class="card floating">
+                    <h3>Mais visibilidade</h3>
+                    <p>Através da nossa plataforma, oferecemos um espaço onde indivíduos e empresas podem não apenas se conectar, mas promover ativamente seus negócios.</p>
+                </div>
+                <div class="card floating">
+                    <h3>Feedback ativo</h3>
+                    <p>Amplie seu negócio com a avaliação de clientes. Mantemos um compromisso com a melhoria contínua através do feedback ativo para garantir a máxima qualidade.</p>
+                </div>
+                <div class="card floating">
+                    <h3>Campanhas promocionais</h3>
+                    <p>Tem alguma iniciativa ou projeto? Nós te ajudamos! Oferecemos canais de comunicação para patrocinadores promoverem seus eventos e alcançarem novos públicos.</p>
+                </div>
+                <div class="card floating">
+                    <h3>Parcerias</h3>
+                    <p>Conectar é ampliar! Criamos uma rede que une inovação à busca por novos serviços, estabelecendo acordos que aumentam o alcance da sua audiência.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="eventos" class="events-section">
+            <h2>Próximos Eventos & Treinamentos</h2>
+            
+            <div class="search-wrapper">
+                <div class="search-container">
+                    <div class="input-group-search">
+                        <label>Pesquisar</label>
+                        <input type="text" placeholder="Título, local ou parceiro..." class="search-input">
+                    </div>
+                    
+                    <div class="input-group-search">
+                        <label for="event-date">Data</label>
+                        <input type="date" id="event-date" class="date-input">
+                    </div>
+                    
+                    <div class="input-group-search">
+                        <label>Categoria</label>
+                        <select class="filter-select">
+                            <option value="all">Todas as Categorias</option>
+                            <option value="startup">Startups & Inovação</option>
+                            <option value="certificacao">Certificações em Alta</option>
+                            <option value="educacao">Educação Digital</option>
+                        </select>
+                    </div>
+                    
+                    <button class="btn-search"><i class="fas fa-search"></i> Buscar</button>
+                </div>
+            </div>
+
+            <div class="events-list">
+                <div class="event-item">
+                    <div class="event-details">
+                        <span class="tag">Startups</span>
+                        <h4>Bootcamp: Escalonamento Ágil for Startups</h4>
+                        <p><strong>Local:</strong> Hub de Inovação Tecnológica</p>
+                        <p><strong>Hora:</strong> 09:00 - 12:00</p>
+                        <p><strong>Parceiro:</strong> Empresa de Investimento em Tecnologia</p>
+                        <p><strong>Heads:</strong> Ana Beatriz (WE Corp) e Diretores</p>
+
+                        <a href="evento-detalhes.html" class="btn-service" style="display: inline-flex; width: auto; margin-top: 15px; padding: 8px 20px; font-size: 0.9rem;">
+        Adquirir Ingresso <i class="fas fa-ticket-alt" style="margin-left: 8px;"></i>
+    </a>
+
+                    </div>
+                    <img src="https://i.ibb.co/3rSj9fS/event-1.jpg" alt="Bootcamp Image" class="event-img">
+                </div>
+
+                <div class="event-item">
+                    <div class="event-details">
+                        <span class="tag">Certificação</span>
+                        <h4>Treinamento: Certificação Cisco CCNA</h4>
+                        <p><strong>Local:</strong> Plataforma Online WE Corp</p>
+                        <p><strong>Hora:</strong> 19:00 - 22:00</p>
+                        <p><strong>Parceiro:</strong> Cisco Networking Academy</p>
+                        <p><strong>Heads:</strong> Instrutores Oficiais Cisco</p>
+
+                        <a href="evento-detalhes.html" class="btn-service" style="display: inline-flex; width: auto; margin-top: 15px; padding: 8px 20px; font-size: 0.9rem;">
+        Adquirir Ingresso <i class="fas fa-ticket-alt" style="margin-left: 8px;"></i>
+    </a>
+
+                    </div>
+                    <img src="https://i.ibb.co/9vHkL3Z/event-2.jpg" alt="Cisco Training Image" class="event-img">
+                </div>
+
+                <div class="event-item">
+                    <div class="event-details">
+                        <span class="tag">Educação</span>
+                        <h4>Workshop: Alfabetização Tecnológica</h4>
+                        <p><strong>Local:</strong> Hub de Iniciação Científica</p>
+                        <p><strong>Hora:</strong> 14:00 - 16:00</p>
+                        <p><strong>Parceiro:</strong> Escolas de Tecnologia Locais</p>
+                        <p><strong>Heads:</strong> Educadores e Desenvolvedores</p>
+
+                        <a href="evento-detalhes.html" class="btn-service" style="display: inline-flex; width: auto; margin-top: 15px; padding: 8px 20px; font-size: 0.9rem;">
+        Adquirir Ingresso <i class="fas fa-ticket-alt" style="margin-left: 8px;"></i>
+    </a>
+
+                    </div>
+                    <img src="https://i.ibb.co/h7W01x0/event-3.jpg" alt="Workshop Image" class="event-img">
+                </div>
+            </div>
+        </section>
+
+        <section id="parceiros" class="partners-section">
+            <h2>Nossos Parceiros e Serviços</h2>
+            <p>Conectando inovação com a busca e procura de novos serviços.</p>
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <h4>Hackers do Bem</h4>
+                    <p>Cursos de Cibersegurança e formação de talentos na área de proteção de dados.</p>
+                    <a href="https://site-externo.com" target="_blank" class="partner-link">Acessar portal <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="partner-card">
+                    <h4>SENAI</h4>
+                    <p>Formação profissionalizante, Indústria 4.0 e inovação tecnológica industrial.</p>
+                    <a href="https://site-externo.com" target="_blank" class="partner-link">Conheça os cursos <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="partner-card">
+                    <h4>Cisco Academy</h4>
+                    <p>Treinamentos e certificações globais em redes e infraestrutura de TI.</p>
+                    <a href="https://site-externo.com" target="_blank" class="partner-link">Ver certificações <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                <div class="partner-card">
+                    <h4>Universidades Parceiras</h4>
+                    <p>Centros de ensino públicos e privados promovendo pesquisa e iniciação científica.</p>
+                    <a href="https://site-externo.com" target="_blank" class="partner-link">Ver rede <i class="fas fa-external-link-alt"></i></a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="logo.png" alt="WE CORP Logo" class="footer-logo">
+                <p>We empower your enterprise</p>
+            </div>
+            <div class="footer-links">
+                <h4>Navegação</h4>
+                <a href="#eventos">Eventos</a>
+                <a href="servicos.html">Serviços</a>
+                <a href="#sobre">Sobre nós</a>
+            </div>
+            <div class="footer-social">
+                <h4>Redes Sociais</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="loginModal" class="modal-overlay">
+        <div class="login-container">
+            <button class="close-modal"><i class="fas fa-times"></i></button>
+            <div class="login-art">
+                <img src="login.png" alt="Arte WE Corp" class="login-bg-image">
+            </div>
+            <div class="login-form-box">
+                <h2>Login</h2>
+<form id="formLogin">
+    <div class="input-group">
+        <label>E-mail</label>
+        <input type="email" id="emailLogin" placeholder="Digite seu e-mail" required>
+    </div>
+    <div class="input-group">
+        <label>Senha</label>
+        <input type="password" id="senhaLogin" placeholder="Digite sua senha" required>
+    </div>
+    <a href="#" class="forgot-pass">Esqueci minha senha</a>
+    <button type="submit" class="btn-submit">Acessar</button>
+</form>
+                <div class="register-link">
+                    <p>Ainda não possui uma conta?</p>
+                    <button id="btnSwitchToRegister" class="btn-register">Criar conta</button>
+                </div>
+                <div class="social-login">
+                    <a href="#"><i class="fab fa-facebook social-icon-fb"></i></a>
+                    <a href="#"><i class="fab fa-google social-icon-g"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="registerModal" class="modal-overlay">
+        <div class="login-container">
+            <button class="close-modal"><i class="fas fa-times"></i></button>
+            <div class="login-art">
+                <img src="login.png" alt="Arte WE Corp" class="login-bg-image">
+            </div>
+            <div class="login-form-box">
+                <h2>Criar Conta</h2>
+                <form>
+                    <div class="input-group">
+                        <label>Nome Completo</label>
+                        <input type="text" placeholder="Digite seu nome">
+                    </div>
+                    <div class="input-group">
+                        <label>E-mail</label>
+                        <input type="email" placeholder="Digite seu e-mail">
+                    </div>
+                    <div class="input-group">
+                        <label>Senha</label>
+                        <input type="password" placeholder="Crie uma senha">
+                    </div>
+                    <button type="submit" class="btn-submit" style="margin-top: 15px;">Cadastrar</button>
+                </form>
+                <div class="register-link">
+                    <p>Já possui uma conta?</p>
+                    <button id="btnSwitchToLogin" class="btn-register">Fazer Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const btnOpenLogin = document.getElementById('btnOpenLogin');
+        const loginModal = document.getElementById('loginModal');
+        const registerModal = document.getElementById('registerModal');
+        const btnsClose = document.querySelectorAll('.close-modal');
+        const btnSwitchToRegister = document.getElementById('btnSwitchToRegister');
+        const btnSwitchToLogin = document.getElementById('btnSwitchToLogin');
+
+        btnOpenLogin.addEventListener('click', () => {
+            loginModal.classList.add('active');
+        });
+
+        btnsClose.forEach(btn => {
+            btn.addEventListener('click', () => {
+                loginModal.classList.remove('active');
+                registerModal.classList.remove('active');
+            });
+        });
+
+        window.addEventListener('click', (e) => {
+            if(e.target === loginModal) loginModal.classList.remove('active');
+            if(e.target === registerModal) registerModal.classList.remove('active');
+        });
+
+        btnSwitchToRegister.addEventListener('click', () => {
+            loginModal.classList.remove('active');
+            registerModal.classList.add('active');
+        });
+
+        btnSwitchToLogin.addEventListener('click', () => {
+            registerModal.classList.remove('active');
+            loginModal.classList.add('active');
+        });
+    </script>
+    <script src="auth.js"></script>
+</body>
+</html>

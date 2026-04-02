@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo - WE Corp</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="admin-body">
+
+    <header class="navbar-direct admin-header">
+        <div class="navbar-content" style="max-width: 100%; padding: 10px 30px;">
+            <div class="logo">
+                <a href="index.html"><img src="logo.png" alt="WE CORP Logo" style="height: 60px;"></a>
+            </div>
+            <nav>
+                <a href="index.html">Voltar ao Site</a>
+                <button id="btnOpenLogin" class="btn-login"><i class="fas fa-sign-out-alt"></i> Sair</button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <aside class="admin-sidebar">
+            <div class="admin-profile">
+                <i class="fas fa-user-shield"></i>
+                <h3>Administrador</h3>
+                <p>Gestão WE Corp</p>
+            </div>
+            <ul class="admin-menu">
+                
+                <li class="has-submenu" id="menu-parceiros">
+                    <div class="menu-item-content" onclick="toggleSubmenu('menu-parceiros')">
+                        <i class="fas fa-handshake"></i> Parceiros e Patrocinadores <i class="fas fa-chevron-down arrow-down"></i>
+                    </div>
+                    <ul class="submenu">
+                        <li onclick="showTab('parceiros')"><i class="fas fa-list" style="width: 15px;"></i> Lista de Parceiros</li>
+                        <li onclick="showTab('parceiros-eventos')"><i class="far fa-calendar-alt" style="width: 15px;"></i> Gestão de Eventos</li>
+                    </ul>
+                </li>
+                
+                <li class="has-submenu" id="menu-prestadores">
+                    <div class="menu-item-content" onclick="toggleSubmenu('menu-prestadores')">
+                        <i class="fas fa-briefcase"></i> Prestadores de Serviço <i class="fas fa-chevron-down arrow-down"></i>
+                    </div>
+                    <ul class="submenu">
+                        <li onclick="showTab('prestadores')"><i class="fas fa-list" style="width: 15px;"></i> Lista de Prestadores</li>
+                        <li onclick="showTab('prestadores-posts')"><i class="fas fa-clipboard-list" style="width: 15px;"></i> Gestão de Postagens</li>
+                    </ul>
+                </li>
+                
+                <li onclick="showTab('clientes')"><i class="fas fa-users"></i> Clientes</li>
+                <li onclick="showTab('requisicoes')">
+                    <i class="fas fa-inbox"></i> Central de Suporte 
+                    <span class="notification-badge">1</span>
+                </li>
+            </ul>
+        </aside>
+
+        <main class="admin-main-content">
+            
+            <section id="tab-parceiros" class="admin-tab-content active">
+                <div class="tab-header">
+                    <h2>Gestão de Parceiros & Patrocinadores</h2>
+                    <button class="btn-search"><i class="fas fa-plus"></i> Novo Parceiro</button>
+                </div>
+                
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Empresa</th>
+                            <th>Tipo</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Cisco Academy</strong></td>
+                            <td>Patrocinador Master</td>
+                            <td><span class="status-tag active">Ativo</span></td>
+                            <td class="action-buttons">
+                                <button class="btn-icon btn-view" onclick="openProfileModal('modalParceiro')"><i class="fas fa-eye"></i> Perfil e Contratos</button>
+                                <button class="btn-icon btn-edit"><i class="fas fa-edit"></i> Editar</button>
+                                </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="tab-parceiros-eventos" class="admin-tab-content">
+                <div class="tab-header">
+                    <h2>Gestão e Aprovação de Eventos</h2>
+                    <button class="btn-search" onclick="openProfileModal('modalAdminNovoEvento')"><i class="fas fa-plus"></i> Novo Evento</button>
+                </div>
+
+                <div class="search-wrapper" style="padding: 20px; margin-bottom: 25px; background: #fff; border-radius: 10px; border: 1px solid #eaeaea;">
+                    <div class="search-container" style="grid-template-columns: auto 1fr auto; gap: 20px; align-items: end;">
+                        <div class="input-group-search">
+                            <label>Status do Evento</label>
+                            <div style="display: flex; gap: 10px;">
+                                <button class="btn-icon btn-view" style="background: var(--theme-teal-main); color: white; border-radius: 20px; padding: 10px 20px; font-weight: 600;">Todos</button>
+                                <button class="btn-icon btn-view" style="border-radius: 20px; padding: 10px 20px; background: #fff3e0; color: #e67e22; font-weight: 600;">Pendentes</button>
+                                <button class="btn-icon btn-view" style="border-radius: 20px; padding: 10px 20px; background: #f0f0f0; font-weight: 600; color: #555;">Ativos</button>
+                            </div>
+                        </div>
+                        <div class="input-group-search">
+                            <label>Filtrar por Empresa Parceira</label>
+                            <select class="filter-select" style="width: 100%;">
+                                <option value="todas">Todos os Parceiros</option>
+                                <option value="wecorp">WE Corp Oficial</option>
+                                <option value="cisco">Cisco Academy</option>
+                            </select>
+                        </div>
+                        <button class="btn-search" style="height: 45px;"><i class="fas fa-search"></i> Buscar</button>
+                    </div>
+                </div>
+
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Evento</th>
+                            <th>Parceiro Solicitante</th>
+                            <th>Data Prevista</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Bootcamp: Redes e Cloud</strong></td>
+                            <td>Cisco Academy</td>
+                            <td>20 Set 2026</td>
+                            <td><span class="status-tag pending">Pendente</span></td>
+                            <td class="action-buttons">
+                                <button class="btn-icon btn-approve" title="Aprovar Evento"><i class="fas fa-check"></i> Aprovar</button>
+                                <button class="btn-icon btn-view" title="Ver Detalhes do Evento"><i class="fas fa-eye"></i></button>
+                                <button class="btn-icon btn-delete" title="Recusar Evento"><i class="fas fa-times"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Treinamento CCNA</strong></td>
+                            <td>Cisco Academy</td>
+                            <td>15 Ago 2026</td>
+                            <td><span class="status-tag active">Ativo</span></td>
+                            <td class="action-buttons">
+                                <button class="btn-icon btn-view" title="Ver Inscritos e Detalhes"><i class="fas fa-users"></i> Detalhes</button>
+                                <button class="btn-icon btn-edit" title="Editar Evento"><i class="fas fa-edit"></i> Editar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="tab-prestadores" class="admin-tab-content">
+                <div class="tab-header">
+                    <h2>Gestão de Prestadores de Serviço</h2>
+                    <button class="btn-search"><i class="fas fa-plus"></i> Novo Prestador</button>
+                </div>
+
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Prestador</th>
+                            <th>Segmento</th>
+                            <th>Avaliação Média</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>TechSecurity Admin</strong></td>
+                            <td>Tecnologia</td>
+                            <td><i class="fas fa-star" style="color:#f39c12"></i> 5.0</td>
+                            <td><span class="status-tag active">Ativo</span></td>
+                            <td class="action-buttons">
+                                <button class="btn-icon btn-view" title="Ver Perfil Financeiro"><i class="fas fa-eye"></i> Perfil</button>
+                                <button class="btn-icon btn-edit"><i class="fas fa-edit"></i> Editar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="tab-prestadores-posts" class="admin-tab-content">
+                <div class="tab-header">
+                    <h2>Gestão de Postagens (Anúncios de Serviços)</h2>
+                    <button class="btn-search" onclick="openProfileModal('modalAdminNovoServico')"><i class="fas fa-plus"></i> Nova Postagem</button>
+                </div>
+
+                <div class="search-wrapper" style="padding: 20px; margin-bottom: 25px; background: #fff; border-radius: 10px; border: 1px solid #eaeaea;">
+                    <div class="search-container" style="grid-template-columns: auto 1fr auto; gap: 20px; align-items: end;">
+                        <div class="input-group-search">
+                            <label>Status da Postagem</label>
+                            <div style="display: flex; gap: 10px;">
+                                <button class="btn-icon btn-view" style="background: var(--theme-teal-main); color: white; border-radius: 20px; padding: 10px 20px; font-weight: 600;">Todos</button>
+                                <button class="btn-icon btn-view" style="border-radius: 20px; padding: 10px 20px; background: #fff3e0; color: #e67e22; font-weight: 600;">Pendentes</button>
+                                <button class="btn-icon btn-view" style="border-radius: 20px; padding: 10px 20px; background: #f0f0f0; font-weight: 600; color: #555;">Ativos</button>
+                            </div>
+                        </div>
+                        <div class="input-group-search">
+                            <label>Filtrar por Empresa</label>
+                            <select class="filter-select" style="width: 100%;">
+                                <option value="todas">Todas as Empresas</option>
+                                <option value="techsecurity">TechSecurity Admin</option>
+                            </select>
+                        </div>
+                        <button class="btn-search" style="height: 45px;"><i class="fas fa-search"></i> Buscar</button>
+                    </div>
+                </div>
+
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Serviço (Postagem)</th>
+                            <th>Empresa Prestadora</th>
+                            <th>Status</th>
+                            <th>Avaliação Média</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Consultoria em Cibersegurança</strong></td>
+                            <td>TechSecurity Admin</td>
+                            <td><span class="status-tag active">Ativo</span></td>
+                            <td><i class="fas fa-star" style="color: #f39c12;"></i> 5.0 (12 Aval)</td>
+                            <td class="action-buttons">
+                                <button class="btn-icon btn-view" onclick="openProfileModal('modalComentarios')" title="Moderar Comentários"><i class="fas fa-comments"></i> Feedbacks</button>
+                                <button class="btn-icon btn-edit"><i class="fas fa-edit"></i> Editar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Auditoria de Servidores Cloud</strong></td>
+                            <td>CloudSys IT</td>
+                            <td><span class="status-tag pending">Pendente</span></td>
+                            <td>-</td>
+                            <td class="action-buttons">
+                                <button class="btn-icon btn-approve" title="Aprovar Postagem"><i class="fas fa-check"></i></button>
+                                <button class="btn-icon btn-view" title="Ver Detalhes da Postagem"><i class="fas fa-eye"></i></button>
+                                <button class="btn-icon btn-delete" title="Recusar Postagem"><i class="fas fa-times"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="tab-clientes" class="admin-tab-content">
+                <div class="tab-header">
+                    <h2>Gestão de Clientes</h2>
+                    <button class="btn-search"><i class="fas fa-plus"></i> Novo Cliente</button>
+                </div>
+
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Nome do Cliente</th>
+                            <th>E-mail</th>
+                            <th>Última Compra</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Ana Beatriz</strong></td>
+                            <td>anabastos.redes@gmail.com</td>
+                            <td>Certificação Cisco</td>
+                            <td><span class="status-tag active">Ativo</span></td>
+                            <td class="action-buttons">
+                                <button class="btn-icon btn-view" onclick="openProfileModal('modalCliente')"><i class="fas fa-eye"></i> Perfil</button>
+                                <button class="btn-icon btn-approve" title="Aprovar Pagamento Pendente"><i class="fas fa-check-circle"></i> Aprovar Pgto</button>
+                                <button class="btn-icon btn-edit"><i class="fas fa-edit"></i> Editar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="tab-requisicoes" class="admin-tab-content">
+                <div class="tab-header">
+                    <h2>Central de Suporte (Help Desk)</h2>
+                </div>
+
+                <p style="color: #666; margin-bottom: 20px;">Gerencie aqui os tickets e pedidos de ajuda enviados por Parceiros, Prestadores e Clientes.</p>
+
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Remetente</th>
+                            <th>Tipo de Usuário</th>
+                            <th>Assunto do Ticket</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Cisco Academy</strong></td>
+                            <td>Parceiro</td>
+                            <td>Aprovação de Pgto: Aluna Ana Beatriz</td>
+                            <td><span class="status-tag pending">Em Aberto</span></td>
+                            <td class="action-buttons">
+                                <button class="btn-icon btn-edit" title="Abrir e Resolver Ticket"><i class="fas fa-external-link-alt"></i> Resolver</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+        </main>
+    </div>
+
+    <div id="modalAdminNovoEvento" class="modal-overlay">
+        <div class="admin-profile-modal">
+            <button class="close-modal" onclick="closeModals()"><i class="fas fa-times"></i></button>
+            <div class="modal-header-profile">
+                <h2>Criar Novo Evento</h2>
+                <p>Crie um evento oficial ou em nome de um parceiro.</p>
+            </div>
+            <form style="display: flex; flex-direction: column; gap: 15px;">
+                <div class="input-group-search">
+                    <label style="color: var(--theme-teal-elegant); font-weight: 600;">Publicar como (Autoria)</label>
+                    <select class="filter-select" style="border: 2px solid var(--theme-teal-light);">
+                        <option>WE Corp Oficial</option>
+                        <option>Cisco Academy</option>
+                    </select>
+                </div>
+                <div class="input-group-search">
+                    <label>Título do Evento</label>
+                    <input type="text" class="search-input" placeholder="Ex: Workshop de Inovação">
+                </div>
+                <div style="display: flex; gap: 15px;">
+                    <div class="input-group-search" style="flex: 1;">
+                        <label>Data</label>
+                        <input type="date" class="search-input">
+                    </div>
+                    <div class="input-group-search" style="flex: 1;">
+                        <label>Valor do Ingresso (R$)</label>
+                        <input type="number" class="search-input" placeholder="0.00">
+                    </div>
+                </div>
+                <div class="input-group-search">
+                    <label>Descrição e Conteúdo</label>
+                    <textarea class="search-input" rows="4" style="resize: none;" placeholder="Descreva o evento..."></textarea>
+                </div>
+                <button type="button" class="btn-search" style="margin-top: 10px;" onclick="alert('Evento criado com sucesso!'); closeModals();"><i class="fas fa-check"></i> Publicar Evento</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="modalAdminNovoServico" class="modal-overlay">
+        <div class="admin-profile-modal">
+            <button class="close-modal" onclick="closeModals()"><i class="fas fa-times"></i></button>
+            <div class="modal-header-profile">
+                <h2>Criar Nova Postagem de Serviço</h2>
+                <p>Ofereça um serviço oficial da plataforma ou por um prestador.</p>
+            </div>
+            <form style="display: flex; flex-direction: column; gap: 15px;">
+                <div class="input-group-search">
+                    <label style="color: var(--theme-teal-elegant); font-weight: 600;">Publicar como (Autoria)</label>
+                    <select class="filter-select" style="border: 2px solid var(--theme-teal-light);">
+                        <option>WE Corp Oficial (Serviços Internos)</option>
+                        <option>TechSecurity Admin</option>
+                    </select>
+                </div>
+                <div class="input-group-search">
+                    <label>Título do Serviço</label>
+                    <input type="text" class="search-input" placeholder="Ex: Gestão de Identidade">
+                </div>
+                <div style="display: flex; gap: 15px;">
+                    <div class="input-group-search" style="flex: 1;">
+                        <label>Categoria</label>
+                        <select class="filter-select">
+                            <option>Tecnologia</option>
+                            <option>Engenharia</option>
+                            <option>Educação</option>
+                        </select>
+                    </div>
+                    <div class="input-group-search" style="flex: 1;">
+                        <label>Valor Médio (R$)</label>
+                        <input type="number" class="search-input" placeholder="0.00">
+                    </div>
+                </div>
+                <div class="input-group-search">
+                    <label>Descrição do Serviço</label>
+                    <textarea class="search-input" rows="4" style="resize: none;" placeholder="Descreva o que está incluso..."></textarea>
+                </div>
+                <button type="button" class="btn-search" style="margin-top: 10px;" onclick="alert('Postagem de serviço criada com sucesso!'); closeModals();"><i class="fas fa-check"></i> Publicar Serviço</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="modalParceiro" class="modal-overlay">
+        <div class="admin-profile-modal">
+            <button class="close-modal" onclick="closeModals()"><i class="fas fa-times"></i></button>
+            <div class="modal-header-profile">
+                <h2>Cisco Academy <span class="status-tag active" style="font-size: 0.8rem;">Ativo</span></h2>
+                <p>Patrocinador Master</p>
+            </div>
+            <div class="profile-details-grid">
+                <div class="detail-card">
+                    <h4><i class="fas fa-file-contract"></i> Contrato</h4>
+                    <p><strong>Vigência:</strong> Jan/2026 a Dez/2027</p>
+                    <a href="#" style="color: var(--theme-teal-main);"><i class="fas fa-download"></i> Baixar PDF do Contrato</a>
+                </div>
+                <div class="detail-card">
+                    <h4><i class="fas fa-chart-line"></i> Financeiro</h4>
+                    <p><strong>Investimento Anual:</strong> R$ 150.000,00</p>
+                    <p><strong>Repasses Realizados:</strong> 3/12</p>
+                </div>
+            </div>
+            <div style="text-align: right; margin-top: 20px;">
+                <button class="btn-search" style="background-color: var(--theme-teal-elegant);"><i class="fas fa-file-invoice"></i> Gerar Relatório Financeiro</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalCliente" class="modal-overlay">
+        <div class="admin-profile-modal">
+            <button class="close-modal" onclick="closeModals()"><i class="fas fa-times"></i></button>
+            <div class="modal-header-profile">
+                <h2>Ana Beatriz <span class="status-tag active" style="font-size: 0.8rem;">Ativa</span></h2>
+                <p>anabastos.redes@gmail.com</p>
+            </div>
+            <div class="detail-list">
+                <h4><i class="fas fa-ticket-alt"></i> Eventos e Serviços Adquiridos</h4>
+                <ul class="purchase-history">
+                    <li>
+                        <div>
+                            <strong>Treinamento: Certificação Cisco CCNA</strong>
+                            <p style="font-size: 0.85rem; color: #666;">Data da compra: 10/04/2026 | Pagamento: PIX</p>
+                        </div>
+                        <span class="pay-tag tag-approved">🟢 Aprovado</span>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>Consultoria em Cibersegurança e Redes</strong>
+                            <p style="font-size: 0.85rem; color: #666;">Data da compra: 01/05/2026 | Pagamento: Boleto</p>
+                        </div>
+                        <span class="pay-tag tag-pending">🟡 Aguardando Pagamento</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalComentarios" class="modal-overlay">
+        <div class="admin-profile-modal" style="max-width: 600px;">
+            <button class="close-modal" onclick="closeModals()"><i class="fas fa-times"></i></button>
+            <div class="modal-header-profile">
+                <h2><i class="fas fa-comments" style="color: var(--theme-teal-main);"></i> Moderação de Feedbacks</h2>
+                <p>Postagem: <strong>Consultoria em Cibersegurança</strong></p>
+            </div>
+            
+            <div class="reviews-list" style="margin-top: 20px; max-height: 400px; overflow-y: auto;">
+                <div class="review-item" style="border-bottom: 1px solid #eee; padding-bottom: 15px; margin-bottom: 15px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                        <strong>Carlos E.</strong>
+                        <span style="color: #f39c12; font-size: 0.8rem;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                    </div>
+                    <p style="font-size: 0.9rem; color: #555;">Serviço excelente! Identificaram falhas críticas na nossa rede.</p>
+                    <button class="btn-icon btn-delete" style="padding: 4px 8px; font-size: 0.75rem; margin-top: 10px;" title="Excluir comentário falso/ofensivo" onclick="confirm('Excluir este comentário da página de serviços?')"><i class="fas fa-trash"></i> Excluir Comentário</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+    <script src="auth.js"></script>
+</body>
+</html>

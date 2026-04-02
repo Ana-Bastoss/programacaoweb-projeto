@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Prestador - WE Corp</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="admin-body">
+
+    <header class="navbar-direct admin-header">
+        <div class="navbar-content" style="max-width: 100%; padding: 10px 30px;">
+            <div class="logo">
+                <a href="index.html"><img src="logo.png" alt="WE CORP Logo" style="height: 60px;"></a>
+            </div>
+            <nav>
+                <a href="servicos.html">Ver Serviços</a>
+                <button id="btnOpenLogin" class="btn-login"><i class="fas fa-sign-out-alt"></i> Sair</button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <aside class="admin-sidebar">
+            <div class="admin-profile">
+                <i class="fas fa-laptop-code" style="color: var(--theme-teal-main);"></i>
+                <h3>TechSecurity</h3>
+                <p>Prestador de Serviço</p>
+            </div>
+            <ul class="admin-menu">
+                <li class="active" onclick="showTab('financeiro')"><i class="fas fa-chart-pie"></i> Dashboard Financeiro</li>
+                <li onclick="showTab('servicos')"><i class="fas fa-box-open"></i> Meus Serviços</li>
+                <li onclick="showTab('clientes')"><i class="fas fa-users"></i> Meus Clientes</li>
+                <li onclick="showTab('assinatura')"><i class="fas fa-file-invoice-dollar"></i> Assinatura WE Corp</li>
+            </ul>
+        </aside>
+
+        <main class="admin-main-content">
+            
+            <section id="tab-financeiro" class="admin-tab-content active">
+                <div class="tab-header">
+                    <h2>Visão Geral Financeira</h2>
+                </div>
+                
+                <div class="finance-cards-grid">
+                    <div class="finance-card">
+                        <h3><i class="fas fa-arrow-up text-green"></i> Entradas (Serviços)</h3>
+                        <span class="amount text-green">R$ 5.400,00</span>
+                        <p style="font-size: 0.8rem; color: #666; margin-top: 5px;">Total recebido de clientes</p>
+                    </div>
+                    <div class="finance-card">
+                        <h3><i class="fas fa-arrow-down text-red"></i> Saídas (Taxas WE Corp)</h3>
+                        <span class="amount text-red">R$ 540,00</span>
+                        <p style="font-size: 0.8rem; color: #666; margin-top: 5px;">10% de comissão retida</p>
+                    </div>
+                    <div class="finance-card" style="border: 2px solid var(--theme-teal-main);">
+                        <h3><i class="fas fa-wallet text-blue"></i> Saldo Líquido</h3>
+                        <span class="amount text-blue">R$ 4.860,00</span>
+                        <p style="font-size: 0.8rem; color: #666; margin-top: 5px;">Disponível para saque</p>
+                    </div>
+                </div>
+
+                <h3 style="margin: 30px 0 15px 0; color: #555;">Últimas Vendas</h3>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Serviço</th>
+                            <th>Data</th>
+                            <th>Valor Total</th>
+                            <th>Taxa</th>
+                            <th>Líquido</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Consultoria em Cibersegurança</td>
+                            <td>05/04/2026</td>
+                            <td>R$ 1.800,00</td>
+                            <td class="text-red">- R$ 180,00</td>
+                            <td class="text-green"><strong>R$ 1.620,00</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="tab-servicos" class="admin-tab-content">
+                <div class="tab-header">
+                    <h2>Meus Serviços (Postagens)</h2>
+                    <button class="btn-search" onclick="openProfileModal('modalNovoServico')"><i class="fas fa-plus"></i> Novo Serviço</button>
+                </div>
+
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Serviço Oferecido</th>
+                            <th>Categoria</th>
+                            <th>Avaliação</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Consultoria em Cibersegurança e Redes</strong></td>
+                            <td>Tecnologia</td>
+                            <td><i class="fas fa-star" style="color:#f39c12"></i> 5.0</td>
+                            <td><span class="status-tag active">Ativo</span></td>
+                            <td class="action-buttons">
+                                <button class="btn-icon btn-edit" title="Editar Serviço"><i class="fas fa-edit"></i> Editar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Auditoria de Servidores Cloud</strong></td>
+                            <td>Tecnologia</td>
+                            <td>-</td>
+                            <td><span class="status-tag pending">Pendente (Em Análise)</span></td>
+                            <td class="action-buttons">
+                                <button class="btn-icon btn-edit" title="Editar Serviço"><i class="fas fa-edit"></i> Editar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="tab-clientes" class="admin-tab-content">
+                <div class="tab-header">
+                    <h2>Meus Clientes</h2>
+                </div>
+
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Nome do Cliente</th>
+                            <th>Serviço Adquirido</th>
+                            <th>Data da Compra</th>
+                            <th>Status do Pagamento</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ana Beatriz</td>
+                            <td>Consultoria em Cibersegurança</td>
+                            <td>01/05/2026</td>
+                            <td><span class="pay-tag tag-pending">🟡 Aguardando</span></td>
+                            <td class="action-buttons">
+                                <button class="btn-icon btn-view" title="Enviar E-mail"><i class="fas fa-envelope"></i> Contactar</button>
+                                <button class="btn-icon btn-view" onclick="openProfileModal('modalAjuda')" title="Pedir Ajuda sobre este cliente"><i class="fas fa-life-ring"></i> Suporte</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Empresa Alpha S.A.</td>
+                            <td>Consultoria em Cibersegurança</td>
+                            <td>05/04/2026</td>
+                            <td><span class="pay-tag tag-approved">🟢 Aprovado</span></td>
+                            <td class="action-buttons">
+                                <button class="btn-icon btn-view" title="Enviar E-mail"><i class="fas fa-envelope"></i> Contactar</button>
+                                <button class="btn-icon btn-view" onclick="openProfileModal('modalAjuda')" title="Pedir Ajuda sobre este cliente"><i class="fas fa-life-ring"></i> Suporte</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="tab-assinatura" class="admin-tab-content">
+                <div class="tab-header">
+                    <h2>Assinatura e Contrato WE Corp</h2>
+                </div>
+
+                <div class="event-grid-layout" style="gap: 20px;">
+                    <div class="info-section">
+                        <h3><i class="fas fa-file-signature"></i> Seu Plano Atual</h3>
+                        <p style="margin-top: 15px;"><strong>Plano:</strong> Prestador Profissional (Visibilidade Ouro)</p>
+                        <p><strong>Vencimento:</strong> Dia 10 de cada mês</p>
+                        <p><strong>Status:</strong> <span class="pay-tag tag-pending" style="display: inline-block; margin-top: 10px;">Fatura em Aberto</span></p>
+                        <br>
+                        <p style="font-size: 0.9rem; color: #666;">O não pagamento da mensalidade pode resultar na suspensão temporária dos seus serviços na vitrine da WE Corp.</p>
+                    </div>
+
+                    <div class="checkout-card" style="top: 0;">
+                        <h3>Fatura - Maio/2026</h3>
+                        <div class="price-display">
+                            <span class="currency">R$</span>
+                            <span class="amount">149</span>
+                            <span class="cents">,90</span>
+                        </div>
+
+                        <div class="payment-tabs" style="margin-top: 20px;">
+                            <button class="payment-tab active" onclick="openPayment('pix')"><i class="fab fa-pix"></i> PIX</button>
+                            <button class="payment-tab" onclick="openPayment('cartao')"><i class="far fa-credit-card"></i> Cartão</button>
+                            <button class="payment-tab" onclick="openPayment('boleto')"><i class="fas fa-barcode"></i> Boleto</button>
+                        </div>
+
+                        <div id="pay-pix" class="payment-content" style="display: block;">
+                            <div class="pix-area">
+                                <i class="fas fa-qrcode" style="font-size: 3rem; color: var(--theme-teal-main); margin-bottom: 10px;"></i>
+                                <p>Gerar QR Code Copia e Cola.</p>
+                            </div>
+                        </div>
+
+                        <div id="pay-cartao" class="payment-content" style="display: none;">
+                            <div class="checkout-form">
+                                <div class="input-group-search" style="margin-bottom: 15px;">
+                                    <input type="text" placeholder="Número do Cartão" class="search-input">
+                                </div>
+                                <div style="display: flex; gap: 15px;">
+                                    <input type="text" placeholder="MM/AA" class="search-input" style="flex: 1;">
+                                    <input type="text" placeholder="CVV" class="search-input" style="flex: 1;">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="pay-boleto" class="payment-content" style="display: none;">
+                            <div class="boleto-area">
+                                <i class="fas fa-file-invoice-dollar" style="font-size: 3rem; color: var(--theme-teal-main); margin-bottom: 10px;"></i>
+                                <p>Gerar linha digitável.</p>
+                            </div>
+                        </div>
+
+                        <button class="btn-search btn-checkout-final" onclick="alert('Pagamento processado com sucesso! Obrigado.');">Pagar Mensalidade <i class="fas fa-lock" style="margin-left: 8px;"></i></button>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <div id="modalNovoServico" class="modal-overlay">
+        <div class="admin-profile-modal">
+            <button class="close-modal" onclick="closeModals()"><i class="fas fa-times"></i></button>
+            <div class="modal-header-profile">
+                <h2>Oferecer Novo Serviço</h2>
+                <p>Preencha os detalhes. A postagem será analisada pela equipa WE Corp.</p>
+            </div>
+            <form style="display: flex; flex-direction: column; gap: 15px;">
+                <div class="input-group-search">
+                    <label>Título do Serviço</label>
+                    <input type="text" class="search-input" placeholder="Ex: Auditoria de Sistemas">
+                </div>
+                <div style="display: flex; gap: 15px;">
+                    <div class="input-group-search" style="flex: 1;">
+                        <label>Categoria</label>
+                        <select class="filter-select">
+                            <option>Tecnologia</option>
+                            <option>Engenharia</option>
+                            <option>Educação</option>
+                        </select>
+                    </div>
+                    <div class="input-group-search" style="flex: 1;">
+                        <label>Valor Médio (R$)</label>
+                        <input type="number" class="search-input" placeholder="0.00">
+                    </div>
+                </div>
+                <div class="input-group-search">
+                    <label>Descrição do Serviço</label>
+                    <textarea class="search-input" rows="4" style="resize: none;" placeholder="Descreva o que está incluso..."></textarea>
+                </div>
+                <button type="button" class="btn-search" style="margin-top: 10px;" onclick="alert('Serviço enviado para aprovação!'); closeModals();"><i class="fas fa-paper-plane"></i> Enviar para Aprovação</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="modalAjuda" class="modal-overlay">
+        <div class="admin-profile-modal" style="max-width: 500px;">
+            <button class="close-modal" onclick="closeModals()"><i class="fas fa-times"></i></button>
+            <div class="modal-header-profile">
+                <h2><i class="fas fa-life-ring" style="color: var(--theme-terracotta);"></i> Acionar Suporte</h2>
+                <p>Relate o problema à moderação da WE Corp.</p>
+            </div>
+            <form style="display: flex; flex-direction: column; gap: 15px;">
+                <div class="input-group-search">
+                    <label>Cliente Relacionado</label>
+                    <select class="filter-select">
+                        <option>Ana Beatriz</option>
+                        <option>Empresa Alpha S.A.</option>
+                        <option>Nenhum / Problema Geral</option>
+                    </select>
+                </div>
+                <div class="input-group-search">
+                    <label>Motivo da Requisição</label>
+                    <select class="filter-select">
+                        <option>Dúvida sobre Pagamento de Cliente</option>
+                        <option>Problema na Execução do Serviço</option>
+                        <option>Cancelamento / Reembolso</option>
+                        <option>Outros</option>
+                    </select>
+                </div>
+                <div class="input-group-search">
+                    <label>Mensagem para o Administrador</label>
+                    <textarea class="search-input" rows="4" style="resize: none;" placeholder="Explique o que ocorreu..."></textarea>
+                </div>
+                <button type="button" class="btn-search" style="background-color: var(--theme-terracotta); margin-top: 10px;" onclick="alert('Requisição enviada ao administrador!'); closeModals();"><i class="fas fa-envelope"></i> Enviar Ticket</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script src="dashboard.js"></script>
+    <script src="auth.js"></script>
+</body>
+</html>

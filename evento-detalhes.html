@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Evento - WE Corp</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="site-background-gradient"></div>
+
+    <header class="navbar-direct">
+        <div class="navbar-content">
+            <div class="logo">
+                <a href="index.html"><img src="logo.png" alt="WE CORP Logo" class="logo-img"></a>
+            </div>
+            <nav>
+                <a href="index.html#eventos" style="color: var(--theme-teal-main);">Eventos</a>
+                <a href="servicos.html">Serviços</a>
+                <a href="index.html#sobre">Sobre nós</a>
+                <a href="index.html#parceiros">Parceiros</a>
+                <button id="btnOpenLogin" class="btn-login">Minha conta</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="event-page-container">
+            <div class="event-hero-header">
+                <span class="tag">Certificação</span>
+                <h1>Treinamento: Certificação Cisco CCNA</h1>
+                <div class="event-quick-info">
+                    <span><i class="far fa-calendar-alt"></i> 15 de Agosto de 2026</span>
+                    <span><i class="far fa-clock"></i> 19:00 - 22:00</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Campus UCB - Taguatinga, DF</span>
+                </div>
+            </div>
+
+            <div class="event-grid-layout">
+                
+                <div class="event-info-col">
+                    <img src="https://i.ibb.co/9vHkL3Z/event-2.jpg" alt="Cisco Training" class="event-main-img">
+                    
+                    <div class="info-section">
+                        <h3>Sobre o Evento</h3>
+                        <p>Prepare-se para o mercado de infraestrutura de redes com o treinamento oficial para a certificação Cisco CCNA. Este bootcamp intensivo é desenhado para administradores de rede, analistas de suporte e profissionais de TI que desejam aprofundar conhecimentos técnicos.</p>
+                    </div>
+
+                    <div class="info-section">
+                        <h3>Conteúdo Abordado</h3>
+                        <ul class="content-list">
+                            <li><i class="fas fa-check"></i> Fundamentos de Rede (Protocolos TCP/IP, DNS, DHCP)</li>
+                            <li><i class="fas fa-check"></i> Acesso à Rede e Conectividade IP</li>
+                            <li><i class="fas fa-check"></i> Configuração de Switches e Roteadores (Cisco CLI)</li>
+                            <li><i class="fas fa-check"></i> Fundamentos de Segurança e Firewalls</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-section certification-box">
+                        <i class="fas fa-award cert-icon"></i>
+                        <div>
+                            <h4>Certificação Inclusa</h4>
+                            <p>Ao finalizar o treinamento com 75% de presença, você receberá um certificado digital de conclusão reconhecido pelos nossos parceiros acadêmicos e corporativos, pronto para ser adicionado ao seu LinkedIn.</p>
+                        </div>
+                    </div>
+
+                    <div class="info-section">
+                        <h3>Localização</h3>
+                        <div class="map-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3837.604928682025!2d-48.03617982390886!3d-15.87738278477439!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935a329d71c1b3f9%3A0x67aeb652d87ec9e0!2sUniversidade%20Cat%C3%B3lica%20de%20Bras%C3%ADlia!5e0!3m2!1spt-BR!2sbr!4v1715000000000!5m2!1spt-BR!2sbr" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="event-checkout-col">
+                    <div class="checkout-card">
+                        <h3>Adquirir Ingresso</h3>
+                        <div class="price-display">
+                            <span class="currency">R$</span>
+                            <span class="amount">199</span>
+                            <span class="cents">,00</span>
+                        </div>
+                        <p class="checkout-subtitle">Lote 1 - Ingresso Profissional</p>
+
+                        <div class="payment-tabs">
+                            <button class="payment-tab active" onclick="openPayment('pix')"><i class="fab fa-pix"></i> PIX</button>
+                            <button class="payment-tab" onclick="openPayment('cartao')"><i class="far fa-credit-card"></i> Cartão</button>
+                            <button class="payment-tab" onclick="openPayment('boleto')"><i class="fas fa-barcode"></i> Boleto</button>
+                        </div>
+
+                        <div id="pay-pix" class="payment-content" style="display: block;">
+                            <div class="pix-area">
+                                <i class="fas fa-qrcode" style="font-size: 3rem; color: var(--theme-teal-main); margin-bottom: 10px;"></i>
+                                <p>O QR Code será gerado após clicar em Finalizar.</p>
+                                <p style="font-size: 0.8rem; color: #666;">Aprovação imediata.</p>
+                            </div>
+                        </div>
+
+                        <div id="pay-cartao" class="payment-content" style="display: none;">
+                            <div class="checkout-form">
+                                <div class="input-group-search" style="margin-bottom: 15px;">
+                                    <label>Número do Cartão</label>
+                                    <input type="text" placeholder="0000 0000 0000 0000" class="search-input">
+                                </div>
+                                <div class="input-group-search" style="margin-bottom: 15px;">
+                                    <label>Nome no Cartão</label>
+                                    <input type="text" placeholder="Nome impresso" class="search-input">
+                                </div>
+                                <div style="display: flex; gap: 15px; margin-bottom: 15px;">
+                                    <div class="input-group-search" style="flex: 1;">
+                                        <label>Validade</label>
+                                        <input type="text" placeholder="MM/AA" class="search-input">
+                                    </div>
+                                    <div class="input-group-search" style="flex: 1;">
+                                        <label>CVV</label>
+                                        <input type="text" placeholder="123" class="search-input">
+                                    </div>
+                                </div>
+                                <div class="input-group-search">
+                                    <label>Parcelamento</label>
+                                    <select class="filter-select">
+                                        <option>1x de R$ 199,00 sem juros</option>
+                                        <option>2x de R$ 99,50 sem juros</option>
+                                        <option>3x de R$ 66,33 sem juros</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="pay-boleto" class="payment-content" style="display: none;">
+                            <div class="boleto-area">
+                                <i class="fas fa-file-invoice-dollar" style="font-size: 3rem; color: var(--theme-teal-main); margin-bottom: 10px;"></i>
+                                <p>O boleto será enviado para o seu e-mail.</p>
+                                <p style="font-size: 0.8rem; color: #666;">Pode levar até 3 dias úteis para compensar.</p>
+                            </div>
+                        </div>
+
+                        <button class="btn-search btn-checkout-final">Finalizar Compra <i class="fas fa-lock" style="margin-left: 8px;"></i></button>
+                        <p class="secure-text"><i class="fas fa-shield-alt"></i> Ambiente 100% Seguro</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="logo.png" alt="WE CORP Logo" class="footer-logo">
+                <p>We empower your enterprise</p>
+            </div>
+            <div class="footer-links">
+                <h4>Navegação</h4>
+                <a href="index.html#eventos">Eventos</a>
+                <a href="servicos.html">Serviços</a>
+                <a href="index.html#sobre">Sobre nós</a>
+                <a href="index.html#parceiros">Parceiros</a>
+            </div>
+            <div class="footer-social">
+                <h4>Redes Sociais</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="loginModal" class="modal-overlay">
+        <div class="login-container">
+            <button class="close-modal"><i class="fas fa-times"></i></button>
+            <div class="login-art">
+                <img src="login.png" alt="Arte WE Corp" class="login-bg-image">
+            </div>
+            <div class="login-form-box">
+                <h2>Login</h2>
+                <form id="formLogin">
+                    <div class="input-group">
+                        <label>E-mail</label>
+                        <input type="email" id="emailLogin" placeholder="Digite seu e-mail" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Senha</label>
+                        <input type="password" id="senhaLogin" placeholder="Digite sua senha" required>
+                    </div>
+                    <a href="#" class="forgot-pass">Esqueci minha senha</a>
+                    <button type="submit" class="btn-submit">Acessar</button>
+                </form>
+                <div class="register-link">
+                    <p>Ainda não possui uma conta?</p>
+                    <button id="btnSwitchToRegister" class="btn-register">Criar conta</button>
+                </div>
+                <div class="social-login">
+                    <a href="#"><i class="fab fa-facebook social-icon-fb"></i></a>
+                    <a href="#"><i class="fab fa-google social-icon-g"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="registerModal" class="modal-overlay">
+        <div class="login-container">
+            <button class="close-modal"><i class="fas fa-times"></i></button>
+            <div class="login-art">
+                <img src="login.png" alt="Arte WE Corp" class="login-bg-image">
+            </div>
+            <div class="login-form-box">
+                <h2>Criar Conta</h2>
+                <form>
+                    <div class="input-group">
+                        <label>Nome Completo</label>
+                        <input type="text" placeholder="Digite seu nome">
+                    </div>
+                    <div class="input-group">
+                        <label>E-mail</label>
+                        <input type="email" placeholder="Digite seu e-mail">
+                    </div>
+                    <div class="input-group">
+                        <label>Senha</label>
+                        <input type="password" placeholder="Crie uma senha">
+                    </div>
+                    <button type="submit" class="btn-submit" style="margin-top: 15px;">Cadastrar</button>
+                </form>
+                <div class="register-link">
+                    <p>Já possui uma conta?</p>
+                    <button id="btnSwitchToLogin" class="btn-register">Fazer Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script src="auth.js"></script>
+</body>
+</html>

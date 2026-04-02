@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Parceiro - WE Corp</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="admin-body">
+
+    <header class="navbar-direct admin-header">
+        <div class="navbar-content" style="max-width: 100%; padding: 10px 30px;">
+            <div class="logo">
+                <a href="index.html"><img src="logo.png" alt="WE CORP Logo" style="height: 60px;"></a>
+            </div>
+            <nav>
+                <a href="index.html">Voltar ao Site</a>
+                <button id="btnOpenLogin" class="btn-login"><i class="fas fa-sign-out-alt"></i> Sair</button>
+            </nav>
+        </div>
+    </header>
+
+    <div class="dashboard-container">
+        <aside class="admin-sidebar">
+            <div class="admin-profile">
+                <i class="fas fa-building" style="color: #f39c12;"></i>
+                <h3>Cisco Academy</h3>
+                <p>Patrocinador Master</p>
+            </div>
+            <ul class="admin-menu">
+                <li class="active" onclick="showTab('financeiro')"><i class="fas fa-chart-pie"></i> Dashboard Financeiro</li>
+                <li onclick="showTab('meus-eventos')"><i class="fas fa-calendar-alt"></i> Meus Eventos</li>
+                <li onclick="showTab('participantes')"><i class="fas fa-users"></i> Participantes</li>
+                <li onclick="showTab('assinatura')"><i class="fas fa-file-signature"></i> Assinatura WE Corp</li>
+            </ul>
+        </aside>
+
+        <main class="admin-main-content">
+            
+            <section id="tab-financeiro" class="admin-tab-content active">
+                <div class="tab-header">
+                    <h2>Visão Geral de Patrocínio</h2>
+                </div>
+                
+                <div class="finance-cards-grid">
+                    <div class="finance-card">
+                        <h3><i class="fas fa-hand-holding-usd text-blue"></i> Total Investido</h3>
+                        <span class="amount text-blue">R$ 45.000,00</span>
+                        <p style="font-size: 0.8rem; color: #666; margin-top: 5px;">Investimento total em eventos</p>
+                    </div>
+                    <div class="finance-card">
+                        <h3><i class="fas fa-ticket-alt text-green"></i> Receita de Ingressos</h3>
+                        <span class="amount text-green">R$ 12.850,00</span>
+                        <p style="font-size: 0.8rem; color: #666; margin-top: 5px;">Sua parte nas vendas (se aplicável)</p>
+                    </div>
+                    <div class="finance-card">
+                        <h3><i class="fas fa-users text-orange" style="color: #f39c12;"></i> Alcance / Leads</h3>
+                        <span class="amount" style="color: #f39c12;">840</span>
+                        <p style="font-size: 0.8rem; color: #666; margin-top: 5px;">Total de inscritos nos seus eventos</p>
+                    </div>
+                </div>
+
+                <h3 style="margin-bottom: 15px; color: #555;">Desempenho por Evento</h3>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Evento Patrocinado</th>
+                            <th>Inscritos</th>
+                            <th>Custo p/ Lead</th>
+                            <th>Status Financeiro</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Certificação Cisco CCNA</td>
+                            <td>450</td>
+                            <td>R$ 33,30</td>
+                            <td><span class="status-tag active">Totalmente Pago</span></td>
+                        </tr>
+                        <tr>
+                            <td>Bootcamp: Redes e Cloud</td>
+                            <td>390</td>
+                            <td>R$ 38,40</td>
+                            <td><span class="status-tag pending">Aguardando Repasse</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="tab-meus-eventos" class="admin-tab-content">
+                <div class="tab-header">
+                    <h2>Gerenciar Meus Eventos</h2>
+                    <button class="btn-search" onclick="openProfileModal('modalNovoEvento')"><i class="fas fa-plus"></i> Criar Novo Evento</button>
+                </div>
+                
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Evento</th>
+                            <th>Data</th>
+                            <th>Status de Aprovação</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Treinamento: Certificação Cisco CCNA</strong></td>
+                            <td>15 Ago 2026</td>
+                            <td><span class="status-tag active">🟢 Publicado</span></td>
+                            <td class="action-buttons">
+                                <button class="btn-icon btn-edit" title="Editar informações"><i class="fas fa-edit"></i> Editar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bootcamp: Redes e Cloud</strong></td>
+                            <td>20 Set 2026</td>
+                            <td><span class="status-tag pending">🟡 Pendente de Aprovação</span></td>
+                            <td class="action-buttons">
+                                <button class="btn-icon btn-edit" title="Editar informações"><i class="fas fa-edit"></i> Editar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="tab-participantes" class="admin-tab-content">
+                <div class="tab-header">
+                    <h2>Lista de Participantes</h2>
+                </div>
+
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Nome do Aluno</th>
+                            <th>Evento Inscrito</th>
+                            <th>Status do Pagamento</th>
+                            <th>Suporte</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ana Beatriz</td>
+                            <td>Certificação Cisco CCNA</td>
+                            <td><span class="pay-tag tag-pending">🟡 Pendente</span></td>
+                            <td class="action-buttons">
+                                <button class="btn-icon btn-view" onclick="openProfileModal('modalAjuda')" title="Solicitar ajuda à WE Corp"><i class="fas fa-life-ring"></i> Pedir Ajuda</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="tab-assinatura" class="admin-tab-content">
+                <div class="tab-header">
+                    <h2>Contrato de Patrocínio WE Corp</h2>
+                </div>
+
+                <div class="event-grid-layout" style="gap: 20px;">
+                    <div class="info-section">
+                        <h3><i class="fas fa-file-contract"></i> Detalhes do Contrato</h3>
+                        <p style="margin-top: 15px;"><strong>Tipo:</strong> Patrocinador Master (Anual)</p>
+                        <p><strong>Vencimento da Parcela:</strong> Todo dia 15</p>
+                        <p><strong>Status:</strong> <span class="pay-tag tag-pending" style="display: inline-block; margin-top: 10px;">Aguardando Pagamento da Parcela 05/12</span></p>
+                        <br>
+                        <a href="#" style="color: var(--theme-teal-elegant); font-weight: 600;"><i class="fas fa-download"></i> Baixar Contrato Assinado (PDF)</a>
+                    </div>
+
+                    <div class="checkout-card" style="top: 0; position: relative;">
+                        <h3>Parcela Mensal</h3>
+                        <div class="price-display">
+                            <span class="currency">R$</span>
+                            <span class="amount">1.250</span>
+                            <span class="cents">,00</span>
+                        </div>
+
+                        <div class="payment-tabs" style="margin-top: 20px;">
+                            <button class="payment-tab active" onclick="openPayment('pix')"><i class="fab fa-pix"></i> PIX</button>
+                            <button class="payment-tab" onclick="openPayment('cartao')"><i class="far fa-credit-card"></i> Cartão</button>
+                            <button class="payment-tab" onclick="openPayment('boleto')"><i class="fas fa-barcode"></i> Boleto</button>
+                        </div>
+
+                        <div id="pay-pix" class="payment-content" style="display: block;">
+                            <div class="pix-area">
+                                <i class="fas fa-qrcode" style="font-size: 3rem; color: var(--theme-teal-main); margin-bottom: 10px;"></i>
+                                <p>Gerar QR Code PIX</p>
+                            </div>
+                        </div>
+
+                        <div id="pay-cartao" class="payment-content" style="display: none;">
+                            <div class="checkout-form">
+                                <input type="text" placeholder="Número do Cartão" class="search-input" style="margin-bottom: 10px;">
+                                <div style="display: flex; gap: 10px;">
+                                    <input type="text" placeholder="MM/AA" class="search-input">
+                                    <input type="text" placeholder="CVV" class="search-input">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="pay-boleto" class="payment-content" style="display: none;">
+                            <div class="boleto-area">
+                                <i class="fas fa-barcode" style="font-size: 3rem; color: var(--theme-teal-main); margin-bottom: 10px;"></i>
+                                <p>Visualizar Boleto Bancário</p>
+                            </div>
+                        </div>
+
+                        <button class="btn-search btn-checkout-final" style="width: 100%; margin-top: 20px;" onclick="alert('Pagamento enviado para processamento!');">Pagar Parcela <i class="fas fa-lock"></i></button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="modalNovoEvento" class="modal-overlay">
+        <div class="admin-profile-modal">
+            <button class="close-modal" onclick="closeModals()"><i class="fas fa-times"></i></button>
+            <div class="modal-header-profile">
+                <h2>Criar Novo Evento</h2>
+                <p>O evento será enviado para a análise da administração WE Corp.</p>
+            </div>
+            <form style="display: flex; flex-direction: column; gap: 15px;">
+                <div class="input-group-search">
+                    <label>Título do Evento</label>
+                    <input type="text" class="search-input" placeholder="Ex: Workshop de Cibersegurança">
+                </div>
+                <div style="display: flex; gap: 15px;">
+                    <div class="input-group-search" style="flex: 1;">
+                        <label>Data</label>
+                        <input type="date" class="search-input">
+                    </div>
+                    <div class="input-group-search" style="flex: 1;">
+                        <label>Valor do Ingresso (R$)</label>
+                        <input type="number" class="search-input" placeholder="0.00">
+                    </div>
+                </div>
+                <button type="button" class="btn-search" style="margin-top: 10px;" onclick="alert('Evento enviado para aprovação!'); closeModals();"><i class="fas fa-paper-plane"></i> Enviar para Aprovação</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="modalAjuda" class="modal-overlay">
+        <div class="admin-profile-modal" style="max-width: 500px;">
+            <button class="close-modal" onclick="closeModals()"><i class="fas fa-times"></i></button>
+            <div class="modal-header-profile">
+                <h2><i class="fas fa-life-ring" style="color: var(--theme-terracotta);"></i> Suporte ao Parceiro</h2>
+                <p>Relate o problema à moderação WE Corp.</p>
+            </div>
+            <textarea class="search-input" rows="4" style="resize: none;" placeholder="Descreva o problema ou dúvida..."></textarea>
+            <button type="button" class="btn-search" style="background-color: var(--theme-terracotta); margin-top: 10px;" onclick="alert('Requisição enviada!'); closeModals();">Enviar Ticket</button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script src="dashboard.js"></script>
+    <script src="auth.js"></script>
+</body>
+</html>
