@@ -1,4 +1,4 @@
-# WE Corp - Plataforma de Conexão Corporativa
+# WE Corp - Plataforma de Conexão Corporativa, MarketPlace com promoção de Eventos para quem é Parceiro e Patrocinador!
 
 ## 👥 Integrantes
 * **Ana Beatriz Gonçalves Bastos**
