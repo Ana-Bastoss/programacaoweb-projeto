@@ -1,5 +1,5 @@
 // =========================================
-// 🧠 SCRIPTS GERAIS DO SITE (main.js)
+// SCRIPTS GERAIS DO SITE (main.js)
 // Aqui controlamos os modais de login, as abas de pagamento e interações visuais.
 // =========================================
 
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // =========================================
-// 🛠️ FUNÇÕES GLOBAIS (Chamadas direto no HTML)
+// FUNÇÕES GLOBAIS (Chamadas direto no HTML)
 // =========================================
 
 // Abrir Modal de Serviço (Na página de Serviços)
