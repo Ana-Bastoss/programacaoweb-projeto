@@ -182,7 +182,7 @@ header.navbar-direct {
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 10px;
 }
 
 /* HOVER */
@@ -261,13 +261,15 @@ header.navbar-direct {
 .input-group-search {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 .input-group-search label {
     font-size: 0.85rem;
     font-weight: 600;
     margin-bottom: 8px;
-    color: #4a4a4a; /* Cinza escuro no lugar do ciano para mais seriedade */
+    color: #4a4a4a;
+    line-height: 1.4;
 }
 
 .search-input, 
@@ -289,21 +291,26 @@ header.navbar-direct {
     border-color: var(--theme-teal-main); /* Destaque ciano ao clicar */
 }
 
-/* Botão de busca escuro e elegante */
+/* Botao de busca escuro e elegante */
 .btn-search {
-    height: 45px;
-    background-color: #1a1a1a; /* Preto */
+    min-height: 45px;
+    background-color: #1a1a1a;
     color: #ffffff;
-    padding: 0 25px;
+    padding: 12px 25px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
     font-weight: 600;
+    font-size: 0.95rem;
     transition: var(--transition-standard);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
 .btn-search:hover {
-    background-color: var(--theme-teal-elegant); /* Fica azul-petróleo ao passar o mouse */
+    background-color: var(--theme-teal-elegant);
 }
 
 /* Lista de Eventos */
@@ -1239,58 +1246,65 @@ footer {
     color: #e67e22;
 }
 
-/* Botões de Ação na Tabela */
+/* =========================================
+   Botões de Ação na Tabela (Padronizados)
+========================================= */
 .action-buttons {
     display: flex;
-    gap: 10px;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 .btn-icon {
-    border: none;
-    background: #f0f0f0;
-    color: #555;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
     padding: 8px 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    min-width: 95px; /* Garante que todos tenham a mesma largura */
     border-radius: 6px;
-    cursor: pointer;
     transition: all 0.2s;
-    font-size: 0.9rem;
+    cursor: pointer;
 }
+
+/* Variações de Cores dos Botões */
+.btn-approve { 
+    background-color: #d4edda; 
+    color: #155724; 
+    border: 1px solid #c3e6cb; 
+}
+.btn-approve:hover { background-color: #c3e6cb; }
+
+.btn-delete { 
+    background-color: #f8d7da; 
+    color: #721c24; 
+    border: 1px solid #f5c6cb; 
+}
+.btn-delete:hover { background-color: #f5c6cb; }
 
 .btn-view { 
-    background: #e0f7fa; 
+    background-color: #e0f7fa; 
     color: #00838f; 
+    border: 1px solid #b2ebf2; 
 }
+.btn-view:hover { background-color: #b2ebf2; }
 
-.btn-view:hover { 
-    background: #b2ebf2; 
+.btn-edit { 
+    background-color: #f0f0f0; 
+    color: #555; 
+    border: 1px solid #e0e0e0; 
 }
+.btn-edit:hover { background-color: #e2e2e2; }
 
-.btn-edit:hover { 
-    background: #e2e2e2; 
-}
-
-.btn-disable:hover { 
-    background: #ffebee; 
+.btn-disable { 
+    background-color: #ffebee; 
     color: #c62828; 
+    border: 1px solid #ffcdd2; 
 }
-
-.btn-approve { 
-    background: #d4edda; 
-    color: #155724; 
-}
-
-.btn-approve:hover { 
-    background: #c3e6cb; 
-}
-
-.btn-delete {
-    background: #ffebee;
-    color: #c62828;
-}
-
-.btn-delete:hover {
-    background: #ffcdd2;
-}
+.btn-disable:hover { background-color: #ffcdd2; }
 
 
 /* =========================================
@@ -1301,25 +1315,69 @@ footer {
     width: 90%;
     max-width: 700px;
     border-radius: 15px;
-    padding: 40px;
+    padding: 35px 40px 40px;
     position: relative;
     box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    max-height: 90vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .modal-header-profile {
     border-bottom: 2px solid #eee;
     padding-bottom: 20px;
     margin-bottom: 25px;
+    flex-shrink: 0;
 }
 
 .modal-header-profile h2 { 
     color: var(--theme-teal-elegant); 
-    margin-bottom: 5px; 
+    margin-bottom: 8px;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 .modal-header-profile p { 
     color: #666; 
-    font-size: 0.95rem; 
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Botao Fechar (X) em modais de perfil admin - contraste com fundo branco */
+.admin-profile-modal .close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #555;
+    background: #f0f0f0;
+    border: none;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: var(--transition-standard);
+    z-index: 10;
+}
+
+.admin-profile-modal .close-modal:hover {
+    color: white;
+    background: var(--theme-accent-peach);
+    transform: scale(1.05);
+}
+
+/* Formularios dentro do modal admin */
+.admin-profile-modal form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .profile-details-grid {
@@ -1515,54 +1573,384 @@ footer {
     background-color: #2a2a2a;
 }
 
+/* Botao de Formulario Largo (Ocupa 100% da largura) */
+.btn-block {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    width: 100% !important;
+    min-height: 52px !important;
+    padding: 14px 24px !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    margin-top: 25px !important;
+    gap: 10px;
+    border-radius: 10px !important;
+    flex-shrink: 0;
+}
+
+/* Garantir que o botao dentro de formularios de modal tenha tamanho adequado */
+.admin-profile-modal .btn-block {
+    min-height: 54px !important;
+    font-size: 1.05rem !important;
+    margin-top: 30px !important;
+}
+
 
 /* =========================================
-   17. RESPONSIVIDADE
+   SEÇÃO DE PLANOS E ASSINATURAS
 ========================================= */
-
-/* Tablets e telas médias */
-@media (max-width: 1000px) {
-    .cards-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+.plans-section {
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-/* Evento - Tablet */
-@media (max-width: 900px) {
-    .event-grid-layout {
+.plans-section h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    color: var(--theme-teal-elegant);
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.plans-subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 50px;
+}
+
+.plans-container {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+/* Blocos de Planos */
+.plans-block {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eaeaea;
+}
+
+.plans-block-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.plans-block-header i {
+    font-size: 2.5rem;
+    color: var(--theme-teal-main);
+    margin-bottom: 15px;
+}
+
+.plans-block-header.institutional i {
+    color: var(--theme-terracotta);
+}
+
+.plans-block-header h3 {
+    font-size: 1.6rem;
+    color: #1a1a1a;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.plans-block-header p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* Grid de Planos */
+.plans-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.institutional-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+/* Cards de Plano */
+.plan-card {
+    background: #fbfbfb;
+    border: 2px solid #e5e5e5;
+    border-radius: 15px;
+    padding: 35px 30px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: var(--transition-standard);
+}
+
+.plan-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+/* Card em Destaque (Ouro) */
+.plan-card.featured {
+    border: 2px solid var(--theme-teal-main);
+    background: linear-gradient(to bottom, #ffffff, #f8fffe);
+    box-shadow: 0 10px 30px rgba(131, 182, 177, 0.2);
+}
+
+.plan-card.featured:hover {
+    box-shadow: 0 20px 40px rgba(131, 182, 177, 0.25);
+}
+
+/* Cards Institucionais */
+.plan-card.institutional-card {
+    background: #fafafa;
+    border: 2px solid #e8e8e8;
+}
+
+.plan-card.institutional-card.master {
+    border-color: var(--theme-terracotta);
+    background: linear-gradient(to bottom, #ffffff, #fdf9f8);
+}
+
+.plan-icon-top {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.plan-icon-top i {
+    font-size: 2.5rem;
+    color: var(--theme-teal-elegant);
+}
+
+.institutional-card.master .plan-icon-top i {
+    color: var(--theme-terracotta);
+}
+
+/* Badges */
+.plan-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 6px 20px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.plan-badge.free {
+    background: #e8e8e8;
+    color: #555;
+}
+
+.plan-badge.gold {
+    background: linear-gradient(135deg, #f7b733, #fc4a1a);
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Títulos dos Planos */
+.plan-card h4 {
+    font-size: 1.4rem;
+    color: #1a1a1a;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Preços */
+.plan-price {
+    text-align: center;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 2px;
+}
+
+.plan-price .price-currency {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.plan-price .price-value {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--theme-teal-elegant);
+    line-height: 1;
+}
+
+.plan-card.featured .plan-price .price-value {
+    color: var(--theme-teal-elegant);
+}
+
+.plan-price .price-cents {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--theme-teal-elegant);
+}
+
+.plan-price .price-period {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin-left: 5px;
+}
+
+/* Descrição */
+.plan-description {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+/* Lista de Benefícios */
+.plan-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+    flex-grow: 1;
+}
+
+.plan-features li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.plan-features li:last-child {
+    border-bottom: none;
+}
+
+.plan-features li i {
+    color: var(--theme-teal-main);
+    font-size: 0.9rem;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.plan-features li.highlight-negative i {
+    color: var(--theme-terracotta);
+}
+
+.plan-features li strong {
+    color: var(--theme-teal-elegant);
+}
+
+.plan-features li.highlight-negative strong {
+    color: var(--theme-terracotta);
+}
+
+/* Botões de Plano */
+.btn-plan {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 25px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-standard);
+    text-decoration: none;
+    border: none;
+    width: 100%;
+}
+
+.btn-plan-free {
+    background: #e8e8e8;
+    color: #333;
+}
+
+.btn-plan-free:hover {
+    background: #d5d5d5;
+    transform: translateY(-2px);
+}
+
+.btn-plan-gold {
+    background: linear-gradient(135deg, var(--theme-teal-main), var(--theme-teal-elegant));
+    color: white;
+    box-shadow: 0 5px 15px rgba(0, 102, 102, 0.3);
+}
+
+.btn-plan-gold:hover {
+    box-shadow: 0 8px 25px rgba(0, 102, 102, 0.4);
+    transform: translateY(-2px);
+}
+
+.btn-plan-contact {
+    background: #1a1a1a;
+    color: white;
+}
+
+.btn-plan-contact:hover {
+    background: var(--theme-teal-elegant);
+    transform: translateY(-2px);
+}
+
+.btn-plan-master {
+    background: linear-gradient(135deg, var(--theme-terracotta), #7a5a4a);
+    color: white;
+    box-shadow: 0 5px 15px rgba(154, 114, 97, 0.3);
+}
+
+.btn-plan-master:hover {
+    box-shadow: 0 8px 25px rgba(154, 114, 97, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Nota Institucional */
+.institutional-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-top: 30px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 4px solid var(--theme-terracotta);
+}
+
+.institutional-note i {
+    color: var(--theme-terracotta);
+    font-size: 1.2rem;
+    margin-top: 2px;
+}
+
+.institutional-note p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Responsividade Planos */
+@media (max-width: 768px) {
+    .plans-grid {
         grid-template-columns: 1fr;
     }
     
-    .event-hero-header h1 {
-        font-size: 2rem;
-    }
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-    .cards-grid {
+    .institutional-grid {
         grid-template-columns: 1fr;
     }
     
-    .search-container { 
-        grid-template-columns: 1fr; 
+    .plans-block {
+        padding: 30px 20px;
     }
     
-    .event-item { 
-        flex-direction: column; 
-        align-items: flex-start; 
-    }
-    
-    .event-img { 
-        width: 100%; 
-        height: 150px; 
-        margin-top: 15px; 
-    }
-    
-    /* Ajuste para o mobile no navbar */
-    .navbar-direct nav { 
-        flex-wrap: wrap; 
-        justify-content: center; 
-        gap: 15px; /* Espaçamento menor para telas pequenas */
+    .plan-price .price-value {
+        font-size: 2.5rem;
     }
 }

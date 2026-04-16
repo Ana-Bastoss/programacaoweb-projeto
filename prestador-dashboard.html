@@ -88,13 +88,23 @@
             <section id="tab-servicos" class="admin-tab-content">
                 <div class="tab-header">
                     <h2>Meus Serviços (Postagens)</h2>
-                    <button class="btn-search" onclick="openProfileModal('modalNovoServico')"><i class="fas fa-plus"></i> Novo Serviço</button>
+                    <button class="btn-search" onclick="openProfileModal('modalNovoServico')"><i class="fas fa-plus"></i> Nova Postagem</button>
+                </div>
+
+                <div class="search-wrapper" style="padding: 20px; margin-bottom: 25px; background: #fff; border-radius: 10px; border: 1px solid #eaeaea;">
+                    <div class="search-container" style="grid-template-columns: 1fr auto; gap: 20px; align-items: end;">
+                        <div class="input-group-search">
+                            <label>Pesquisar Serviço</label>
+                            <input type="text" class="search-input" placeholder="Pesquisar meus serviços...">
+                        </div>
+                        <button class="btn-search" style="height: 45px;"><i class="fas fa-search"></i> Buscar</button>
+                    </div>
                 </div>
 
                 <table class="admin-table">
                     <thead>
                         <tr>
-                            <th>Serviço Oferecido</th>
+                            <th>Serviço (Postagem)</th>
                             <th>Categoria</th>
                             <th>Avaliação</th>
                             <th>Status</th>
@@ -108,7 +118,8 @@
                             <td><i class="fas fa-star" style="color:#f39c12"></i> 5.0</td>
                             <td><span class="status-tag active">Ativo</span></td>
                             <td class="action-buttons">
-                                <button class="btn-icon btn-edit" title="Editar Serviço"><i class="fas fa-edit"></i> Editar</button>
+                                <button class="btn-icon btn-view" title="Ver Detalhes da Postagem"><i class="fas fa-eye"></i> Detalhes</button>
+                                <button class="btn-icon btn-edit" title="Editar informações"><i class="fas fa-edit"></i> Editar</button>
                             </td>
                         </tr>
                         <tr>
@@ -117,7 +128,8 @@
                             <td>-</td>
                             <td><span class="status-tag pending">Pendente (Em Análise)</span></td>
                             <td class="action-buttons">
-                                <button class="btn-icon btn-edit" title="Editar Serviço"><i class="fas fa-edit"></i> Editar</button>
+                                <button class="btn-icon btn-view" title="Ver Detalhes da Postagem"><i class="fas fa-eye"></i> Detalhes</button>
+                                <button class="btn-icon btn-edit" title="Editar informações"><i class="fas fa-edit"></i> Editar</button>
                             </td>
                         </tr>
                     </tbody>
@@ -127,6 +139,16 @@
             <section id="tab-clientes" class="admin-tab-content">
                 <div class="tab-header">
                     <h2>Meus Clientes</h2>
+                </div>
+
+                <div class="search-wrapper" style="padding: 20px; margin-bottom: 25px; background: #fff; border-radius: 10px; border: 1px solid #eaeaea;">
+                    <div class="search-container" style="grid-template-columns: 1fr auto; gap: 20px; align-items: end;">
+                        <div class="input-group-search">
+                            <label>Pesquisar Cliente</label>
+                            <input type="text" class="search-input" placeholder="Pesquisar por nome do cliente...">
+                        </div>
+                        <button class="btn-search" style="height: 45px;"><i class="fas fa-search"></i> Buscar</button>
+                    </div>
                 </div>
 
                 <table class="admin-table">
@@ -176,6 +198,9 @@
                         <p><strong>Vencimento:</strong> Dia 10 de cada mês</p>
                         <p><strong>Status:</strong> <span class="pay-tag tag-pending" style="display: inline-block; margin-top: 10px;">Fatura em Aberto</span></p>
                         <br>
+                        <button class="btn-search" style="background-color: var(--theme-teal-elegant); padding: 8px 15px; font-size: 0.9rem; margin-top: 10px; margin-bottom: 15px;" onclick="openProfileModal('modalDetalhesContrato')">
+                            <i class="fas fa-info-circle"></i> Mais Detalhes / Ver Contrato Completo
+                        </button>
                         <p style="font-size: 0.9rem; color: #666;">O não pagamento da mensalidade pode resultar na suspensão temporária dos seus serviços na vitrine da WE Corp.</p>
                     </div>
 
@@ -219,7 +244,7 @@
                             </div>
                         </div>
 
-                        <button class="btn-search btn-checkout-final" onclick="alert('Pagamento processado com sucesso! Obrigado.');">Pagar Mensalidade <i class="fas fa-lock" style="margin-left: 8px;"></i></button>
+                        <button class="btn-search btn-checkout-final btn-block" onclick="alert('Pagamento processado com sucesso! Obrigado.');">Pagar Mensalidade <i class="fas fa-lock" style="margin-left: 8px;"></i></button>
                     </div>
                 </div>
             </section>
@@ -231,13 +256,19 @@
         <div class="admin-profile-modal">
             <button class="close-modal" onclick="closeModals()"><i class="fas fa-times"></i></button>
             <div class="modal-header-profile">
-                <h2>Oferecer Novo Serviço</h2>
-                <p>Preencha os detalhes. A postagem será analisada pela equipa WE Corp.</p>
+                <h2>Criar Nova Postagem de Serviço</h2>
+                <p>Preencha os detalhes. A postagem será analisada pela equipe WE Corp.</p>
             </div>
             <form style="display: flex; flex-direction: column; gap: 15px;">
                 <div class="input-group-search">
+                    <label style="color: var(--theme-teal-elegant); font-weight: 600;">Publicar como (Autoria)</label>
+                    <select class="filter-select" style="border: 2px solid var(--theme-teal-light); background-color: #f5f5f5;" disabled>
+                        <option>TechSecurity Admin</option>
+                    </select>
+                </div>
+                <div class="input-group-search">
                     <label>Título do Serviço</label>
-                    <input type="text" class="search-input" placeholder="Ex: Auditoria de Sistemas">
+                    <input type="text" class="search-input" placeholder="Ex: Gestão de Identidade">
                 </div>
                 <div style="display: flex; gap: 15px;">
                     <div class="input-group-search" style="flex: 1;">
@@ -257,7 +288,7 @@
                     <label>Descrição do Serviço</label>
                     <textarea class="search-input" rows="4" style="resize: none;" placeholder="Descreva o que está incluso..."></textarea>
                 </div>
-                <button type="button" class="btn-search" style="margin-top: 10px;" onclick="alert('Serviço enviado para aprovação!'); closeModals();"><i class="fas fa-paper-plane"></i> Enviar para Aprovação</button>
+                <button type="button" class="btn-search btn-block" onclick="alert('Postagem de serviço enviada para aprovação!'); closeModals();"><i class="fas fa-check"></i> Publicar Serviço</button>
             </form>
         </div>
     </div>
@@ -291,8 +322,37 @@
                     <label>Mensagem para o Administrador</label>
                     <textarea class="search-input" rows="4" style="resize: none;" placeholder="Explique o que ocorreu..."></textarea>
                 </div>
-                <button type="button" class="btn-search" style="background-color: var(--theme-terracotta); margin-top: 10px;" onclick="alert('Requisição enviada ao administrador!'); closeModals();"><i class="fas fa-envelope"></i> Enviar Ticket</button>
+                <button type="button" class="btn-search btn-block" style="background-color: var(--theme-terracotta);" onclick="alert('Requisição enviada ao administrador!'); closeModals();"><i class="fas fa-envelope"></i> Enviar Ticket</button>
             </form>
+        </div>
+    </div>
+
+    <div id="modalDetalhesContrato" class="modal-overlay">
+        <div class="admin-profile-modal" style="max-width: 600px;">
+            <button class="close-modal" onclick="closeModals()"><i class="fas fa-times"></i></button>
+            <div class="modal-header-profile">
+                <h2><i class="fas fa-file-alt"></i> Termos do Plano Contratado</h2>
+                <p>Confira o que está incluso na sua parceria com a WE Corp.</p>
+            </div>
+            <div class="detail-list" style="max-height: 400px; overflow-y: auto; padding-right: 10px;">
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #eee;">
+                        <strong><i class="fas fa-check-circle" style="color: var(--theme-teal-main);"></i> Visibilidade Prioritária:</strong> 
+                        Seu perfil aparece no topo das buscas e recomendações do mês.
+                    </li>
+                    <li style="margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #eee;">
+                        <strong><i class="fas fa-check-circle" style="color: var(--theme-teal-main);"></i> Taxa de Mediação Reduzida:</strong> 
+                        Comissão fixa de apenas 10% sobre serviços/ingressos vendidos.
+                    </li>
+                    <li style="margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #eee;">
+                        <strong><i class="fas fa-check-circle" style="color: var(--theme-teal-main);"></i> Suporte VIP:</strong> 
+                        Tickets de suporte respondidos em até 4 horas úteis.
+                    </li>
+                </ul>
+            </div>
+            <div style="text-align: right; margin-top: 20px;">
+                <button class="btn-search" onclick="closeModals()">Fechar</button>
+            </div>
         </div>
     </div>
 

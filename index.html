@@ -19,10 +19,11 @@
             <div class="logo">
                 <img src="logo.png" alt="WE CORP Logo" class="logo-img">
             </div>
-            <nav>
+<nav>
                 <a href="#eventos">Eventos</a>
                 <a href="servicos.html">Serviços</a>
                 <a href="#sobre">Sobre nós</a>
+                <a href="#planos">Planos</a>
                 <a href="#parceiros">Parceiros</a>
                 <button id="btnOpenLogin" class="btn-login">Minha conta</button>
             </nav>
@@ -32,7 +33,7 @@
     <main>
         <section id="sobre" class="hero-section">
             <h1>A empresa que ajuda o seu negócio a crescer</h1>
-            <p class="subtitle">A WE Corp é uma empresa que acredita na criação de conexões para expansão dos negócios.Promover a visibilidade da sua marca e te ajudar a causar impacto no mercado é o nosso objetivo!</p>
+            <p class="subtitle">A WE Corp é uma empresa voltada aos campos de engenharia, tecnologia e educação, que acredita no poder das conexões para impulsionar a expansão de negócios. Nosso objetivo é ampliar a visibilidade da sua marca e ajudar você a gerar impacto real no mercado, promovendo suas iniciativas de forma estratégica e eficaz.</p>
             
             <div class="cards-grid">
                 <div class="card floating">
@@ -45,11 +46,127 @@
                 </div>
                 <div class="card floating">
                     <h3>Campanhas promocionais</h3>
-                    <p>Tem alguma iniciativa ou projeto? Nós te ajudamos! Oferecemos canais de comunicação para patrocinadores promoverem seus eventos e alcançarem novos públicos.</p>
+                    <p>Tem alguma iniciativa ou projeto que pode agregar valor a sua empresa? Nós te ajudamos! Oferecemos canais de comunicação para patrocinadores e parceiros promoverem seus eventos e alcançarem novos públicos.</p>
                 </div>
                 <div class="card floating">
                     <h3>Parcerias</h3>
                     <p>Conectar é ampliar! Criamos uma rede que une inovação à busca por novos serviços, estabelecendo acordos que aumentam o alcance da sua audiência.</p>
+                </div>
+</div>
+        </section>
+
+        <!-- SEÇÃO DE PLANOS DE ASSINATURA -->
+        <section id="planos" class="plans-section">
+            <h2>Planos e Parcerias</h2>
+            <p class="plans-subtitle">Escolha o modelo ideal para impulsionar seu negócio na plataforma WE Corp</p>
+
+            <div class="plans-container">
+                <!-- BLOCO: PRESTADORES DE SERVIÇO -->
+                <div class="plans-block">
+                    <div class="plans-block-header">
+                        <i class="fas fa-briefcase"></i>
+                        <h3>Para Prestadores de Serviço</h3>
+                        <p>Foco em Vendas e Volume</p>
+                    </div>
+
+                    <div class="plans-grid">
+                        <!-- Plano Essencial -->
+                        <div class="plan-card">
+                            <div class="plan-badge free">Gratuito</div>
+                            <h4>Plano Essencial</h4>
+                            <div class="plan-price">
+                                <span class="price-value">R$ 0</span>
+                                <span class="price-period">/mês</span>
+                            </div>
+                            <p class="plan-description">Ideal para quem está começando e quer testar a plataforma sem custo inicial.</p>
+                            <ul class="plan-features">
+                                <li><i class="fas fa-check"></i> Cadastro na plataforma</li>
+                                <li><i class="fas fa-check"></i> Listagem na busca geral</li>
+                                <li><i class="fas fa-check"></i> Recebimento de pedidos</li>
+                                <li class="highlight-negative"><i class="fas fa-percent"></i> Taxa de intermediação: <strong>15% a 20%</strong></li>
+                            </ul>
+                            <button class="btn-plan btn-plan-free" onclick="document.getElementById('btnOpenLogin').click()">
+                                <i class="fas fa-user-plus"></i> Começar Grátis
+                            </button>
+                        </div>
+
+                        <!-- Plano Visibilidade Ouro -->
+                        <div class="plan-card featured">
+                            <div class="plan-badge gold"><i class="fas fa-crown"></i> Recomendado</div>
+                            <h4>Visibilidade Ouro</h4>
+                            <div class="plan-price">
+                                <span class="price-currency">R$</span>
+                                <span class="price-value">149</span>
+                                <span class="price-cents">,90</span>
+                                <span class="price-period">/mês</span>
+                            </div>
+                            <p class="plan-description">Maximize sua exposição e conquiste mais clientes com benefícios exclusivos.</p>
+                            <ul class="plan-features">
+                                <li><i class="fas fa-star"></i> Destaque na aba "Recomendações do Mês"</li>
+                                <li><i class="fas fa-check-circle"></i> Selo de <strong>Profissional Verificado</strong></li>
+                                <li><i class="fas fa-percent"></i> Taxa de intermediação reduzida: <strong>apenas 10%</strong></li>
+                                <li><i class="fas fa-chart-line"></i> Relatórios de desempenho</li>
+                                <li><i class="fas fa-headset"></i> Suporte prioritário</li>
+                            </ul>
+                            <button class="btn-plan btn-plan-gold" onclick="document.getElementById('btnOpenLogin').click()">
+                                <i class="fas fa-rocket"></i> Assinar Agora
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BLOCO: PARCEIROS E PATROCINADORES -->
+                <div class="plans-block">
+                    <div class="plans-block-header institutional">
+                        <i class="fas fa-handshake"></i>
+                        <h3>Para Parceiros e Patrocinadores</h3>
+                        <p>Foco Institucional e B2B</p>
+                    </div>
+
+                    <div class="plans-grid institutional-grid">
+                        <!-- Parceiro de Conteúdo -->
+                        <div class="plan-card institutional-card">
+                            <div class="plan-icon-top">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h4>Parceiro de Conteúdo</h4>
+                            <p class="plan-description">Para empresas e instituições que desejam lançar cursos, workshops e eventos na plataforma.</p>
+                            <ul class="plan-features">
+                                <li><i class="fas fa-check"></i> Publicação de cursos e eventos</li>
+                                <li><i class="fas fa-check"></i> Divisão de receita dos ingressos</li>
+                                <li><i class="fas fa-check"></i> Acesso ao painel de gestão</li>
+                                <li><i class="fas fa-check"></i> Relatórios de participação</li>
+                                <li><i class="fas fa-check"></i> Suporte dedicado</li>
+                            </ul>
+                            <a href="mailto:parcerias@wecorp.com?subject=Interesse%20-%20Parceiro%20de%20Conteúdo" class="btn-plan btn-plan-contact">
+                                <i class="fas fa-comments"></i> Falar com Consultor
+                            </a>
+                        </div>
+
+                        <!-- Patrocinador Master -->
+                        <div class="plan-card institutional-card master">
+                            <div class="plan-icon-top">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <h4>Patrocinador Master</h4>
+                            <p class="plan-description">Para grandes empresas que buscam máxima visibilidade e acesso estratégico aos nossos eventos.</p>
+                            <ul class="plan-features">
+                                <li><i class="fas fa-star"></i> Logo nos banners e materiais</li>
+                                <li><i class="fas fa-star"></i> Estandes exclusivos em eventos</li>
+                                <li><i class="fas fa-star"></i> Acesso à lista de leads (participantes)</li>
+                                <li><i class="fas fa-star"></i> Menção em comunicações oficiais</li>
+                                <li><i class="fas fa-star"></i> Relatórios de ROI e engajamento</li>
+                            </ul>
+                            <a href="mailto:parcerias@wecorp.com?subject=Interesse%20-%20Patrocinador%20Master" class="btn-plan btn-plan-master">
+                                <i class="fas fa-phone-alt"></i> Falar com Consultor
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="institutional-note">
+                        <i class="fas fa-info-circle"></i>
+                        <p>Parcerias institucionais são personalizadas de acordo com as necessidades de cada empresa. Entre em contato para uma proposta sob medida.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -86,7 +203,7 @@
             <div class="events-list">
                 <div class="event-item">
                     <div class="event-details">
-                        <span class="tag">Startups</span>
+                        <span class="tag">Startups e Inovação</span>
                         <h4>Bootcamp: Escalonamento Ágil for Startups</h4>
                         <p><strong>Local:</strong> Hub de Inovação Tecnológica</p>
                         <p><strong>Hora:</strong> 09:00 - 12:00</p>
@@ -138,7 +255,7 @@
         </section>
 
         <section id="parceiros" class="partners-section">
-            <h2>Nossos Parceiros e Serviços</h2>
+            <h2>Nossos Parceiros e Patrocinadores</h2>
             <p>Conectando inovação com a busca e procura de novos serviços.</p>
             <div class="partners-grid">
                 <div class="partner-card">

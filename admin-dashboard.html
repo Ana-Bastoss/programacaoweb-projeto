@@ -65,7 +65,17 @@
             <section id="tab-parceiros" class="admin-tab-content active">
                 <div class="tab-header">
                     <h2>Gestão de Parceiros & Patrocinadores</h2>
-                    <button class="btn-search"><i class="fas fa-plus"></i> Novo Parceiro</button>
+                    <button class="btn-search" onclick="openProfileModal('modalTipoParceiro')"><i class="fas fa-plus"></i> Novo Parceiro ou Patrocinador</button>
+                </div>
+                
+                <div class="search-wrapper" style="padding: 20px; margin-bottom: 25px; background: #fff; border-radius: 10px; border: 1px solid #eaeaea;">
+                    <div class="search-container" style="grid-template-columns: 1fr auto; gap: 20px; align-items: end;">
+                        <div class="input-group-search">
+                            <label>Pesquisar Parceiro/Patrocinador</label>
+                            <input type="text" class="search-input" placeholder="Digite o nome, CNPJ ou segmento...">
+                        </div>
+                        <button class="btn-search" style="height: 45px;"><i class="fas fa-search"></i> Buscar</button>
+                    </div>
                 </div>
                 
                 <table class="admin-table">
@@ -83,9 +93,10 @@
                             <td>Patrocinador Master</td>
                             <td><span class="status-tag active">Ativo</span></td>
                             <td class="action-buttons">
-                                <button class="btn-icon btn-view" onclick="openProfileModal('modalParceiro')"><i class="fas fa-eye"></i> Perfil e Contratos</button>
-                                <button class="btn-icon btn-edit"><i class="fas fa-edit"></i> Editar</button>
-                                </td>
+                                <button class="btn-icon btn-view" onclick="openProfileModal('modalParceiro')" title="Ver Perfil e Cadastro"><i class="fas fa-eye"></i> Perfil e Contratos</button>
+                                <button class="btn-icon btn-view" onclick="openProfileModal('modalAssinaturaAdmin')" title="Gerenciar Assinatura"><i class="fas fa-file-signature"></i> Assinaturas</button>
+                                <button class="btn-icon btn-edit" onclick="openProfileModal('modalTipoParceiro')"><i class="fas fa-edit"></i> Editar</button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -109,11 +120,14 @@
                         </div>
                         <div class="input-group-search">
                             <label>Filtrar por Empresa Parceira</label>
-                            <select class="filter-select" style="width: 100%;">
-                                <option value="todas">Todos os Parceiros</option>
-                                <option value="wecorp">WE Corp Oficial</option>
-                                <option value="cisco">Cisco Academy</option>
-                            </select>
+                            <div style="display: flex; gap: 10px;">
+                                <input type="text" class="search-input" placeholder="Pesquisar..." style="flex: 1;">
+                                <select class="filter-select" style="flex: 1;">
+                                    <option value="todas">Todos os Parceiros</option>
+                                    <option value="wecorp">WE Corp Oficial</option>
+                                    <option value="cisco">Cisco Academy</option>
+                                </select>
+                            </div>
                         </div>
                         <button class="btn-search" style="height: 45px;"><i class="fas fa-search"></i> Buscar</button>
                     </div>
@@ -137,8 +151,9 @@
                             <td><span class="status-tag pending">Pendente</span></td>
                             <td class="action-buttons">
                                 <button class="btn-icon btn-approve" title="Aprovar Evento"><i class="fas fa-check"></i> Aprovar</button>
-                                <button class="btn-icon btn-view" title="Ver Detalhes do Evento"><i class="fas fa-eye"></i></button>
-                                <button class="btn-icon btn-delete" title="Recusar Evento"><i class="fas fa-times"></i></button>
+                                <button class="btn-icon btn-delete" title="Recusar Evento"><i class="fas fa-times"></i> Recusar</button>
+                                <button class="btn-icon btn-view" title="Ver Detalhes do Evento"><i class="fas fa-eye"></i> Detalhes</button>
+                                <button class="btn-icon btn-edit" title="Editar informações"><i class="fas fa-edit"></i> Editar</button>
                             </td>
                         </tr>
                         <tr>
@@ -147,8 +162,8 @@
                             <td>15 Ago 2026</td>
                             <td><span class="status-tag active">Ativo</span></td>
                             <td class="action-buttons">
-                                <button class="btn-icon btn-view" title="Ver Inscritos e Detalhes"><i class="fas fa-users"></i> Detalhes</button>
-                                <button class="btn-icon btn-edit" title="Editar Evento"><i class="fas fa-edit"></i> Editar</button>
+                                <button class="btn-icon btn-view" title="Ver Detalhes do Evento"><i class="fas fa-eye"></i> Detalhes</button>
+                                <button class="btn-icon btn-edit" title="Editar informações"><i class="fas fa-edit"></i> Editar</button>
                             </td>
                         </tr>
                     </tbody>
@@ -158,7 +173,17 @@
             <section id="tab-prestadores" class="admin-tab-content">
                 <div class="tab-header">
                     <h2>Gestão de Prestadores de Serviço</h2>
-                    <button class="btn-search"><i class="fas fa-plus"></i> Novo Prestador</button>
+                    <button class="btn-search" onclick="alert('O banco de dados ainda não foi requerido no projeto.')"><i class="fas fa-plus"></i> Novo Prestador</button>
+                </div>
+
+                <div class="search-wrapper" style="padding: 20px; margin-bottom: 25px; background: #fff; border-radius: 10px; border: 1px solid #eaeaea;">
+                    <div class="search-container" style="grid-template-columns: 1fr auto; gap: 20px; align-items: end;">
+                        <div class="input-group-search">
+                            <label>Pesquisar Prestador</label>
+                            <input type="text" class="search-input" placeholder="Digite o nome ou segmento...">
+                        </div>
+                        <button class="btn-search" style="height: 45px;"><i class="fas fa-search"></i> Buscar</button>
+                    </div>
                 </div>
 
                 <table class="admin-table">
@@ -178,8 +203,9 @@
                             <td><i class="fas fa-star" style="color:#f39c12"></i> 5.0</td>
                             <td><span class="status-tag active">Ativo</span></td>
                             <td class="action-buttons">
-                                <button class="btn-icon btn-view" title="Ver Perfil Financeiro"><i class="fas fa-eye"></i> Perfil</button>
-                                <button class="btn-icon btn-edit"><i class="fas fa-edit"></i> Editar</button>
+                                <button class="btn-icon btn-view" title="Ver Perfil e Contratos"><i class="fas fa-eye"></i> Perfil e Contratos</button>
+                                <button class="btn-icon btn-view" onclick="openProfileModal('modalAssinaturaPrestador')" title="Gerenciar Assinatura"><i class="fas fa-file-signature"></i> Assinaturas</button>
+                                <button class="btn-icon btn-edit" onclick="alert('O banco de dados ainda não foi requerido no projeto.')"><i class="fas fa-edit"></i> Editar</button>
                             </td>
                         </tr>
                     </tbody>
@@ -204,10 +230,13 @@
                         </div>
                         <div class="input-group-search">
                             <label>Filtrar por Empresa</label>
-                            <select class="filter-select" style="width: 100%;">
-                                <option value="todas">Todas as Empresas</option>
-                                <option value="techsecurity">TechSecurity Admin</option>
-                            </select>
+                            <div style="display: flex; gap: 10px;">
+                                <input type="text" class="search-input" placeholder="Pesquisar..." style="flex: 1;">
+                                <select class="filter-select" style="flex: 1;">
+                                    <option value="todas">Todas as Empresas</option>
+                                    <option value="techsecurity">TechSecurity Admin</option>
+                                </select>
+                            </div>
                         </div>
                         <button class="btn-search" style="height: 45px;"><i class="fas fa-search"></i> Buscar</button>
                     </div>
@@ -230,8 +259,9 @@
                             <td><span class="status-tag active">Ativo</span></td>
                             <td><i class="fas fa-star" style="color: #f39c12;"></i> 5.0 (12 Aval)</td>
                             <td class="action-buttons">
+                                <button class="btn-icon btn-view" title="Ver Detalhes da Postagem"><i class="fas fa-eye"></i> Detalhes</button>
                                 <button class="btn-icon btn-view" onclick="openProfileModal('modalComentarios')" title="Moderar Comentários"><i class="fas fa-comments"></i> Feedbacks</button>
-                                <button class="btn-icon btn-edit"><i class="fas fa-edit"></i> Editar</button>
+                                <button class="btn-icon btn-edit" title="Editar informações"><i class="fas fa-edit"></i> Editar</button>
                             </td>
                         </tr>
                         <tr>
@@ -240,9 +270,10 @@
                             <td><span class="status-tag pending">Pendente</span></td>
                             <td>-</td>
                             <td class="action-buttons">
-                                <button class="btn-icon btn-approve" title="Aprovar Postagem"><i class="fas fa-check"></i></button>
-                                <button class="btn-icon btn-view" title="Ver Detalhes da Postagem"><i class="fas fa-eye"></i></button>
-                                <button class="btn-icon btn-delete" title="Recusar Postagem"><i class="fas fa-times"></i></button>
+                                <button class="btn-icon btn-approve" title="Aprovar Postagem"><i class="fas fa-check"></i> Aprovar</button>
+                                <button class="btn-icon btn-delete" title="Recusar Postagem"><i class="fas fa-times"></i> Recusar</button>
+                                <button class="btn-icon btn-view" title="Ver Detalhes da Postagem"><i class="fas fa-eye"></i> Detalhes</button>
+                                <button class="btn-icon btn-edit" title="Editar informações"><i class="fas fa-edit"></i> Editar</button>
                             </td>
                         </tr>
                     </tbody>
@@ -252,7 +283,17 @@
             <section id="tab-clientes" class="admin-tab-content">
                 <div class="tab-header">
                     <h2>Gestão de Clientes</h2>
-                    <button class="btn-search"><i class="fas fa-plus"></i> Novo Cliente</button>
+                    <button class="btn-search" onclick="openProfileModal('modalNovoCliente')"><i class="fas fa-plus"></i> Novo Cliente</button>
+                </div>
+
+                <div class="search-wrapper" style="padding: 20px; margin-bottom: 25px; background: #fff; border-radius: 10px; border: 1px solid #eaeaea;">
+                    <div class="search-container" style="grid-template-columns: 1fr auto; gap: 20px; align-items: end;">
+                        <div class="input-group-search">
+                            <label>Pesquisar Cliente</label>
+                            <input type="text" class="search-input" placeholder="Pesquisar por nome ou email...">
+                        </div>
+                        <button class="btn-search" style="height: 45px;"><i class="fas fa-search"></i> Buscar</button>
+                    </div>
                 </div>
 
                 <table class="admin-table">
@@ -260,7 +301,6 @@
                         <tr>
                             <th>Nome do Cliente</th>
                             <th>E-mail</th>
-                            <th>Última Compra</th>
                             <th>Status</th>
                             <th>Ações</th>
                         </tr>
@@ -269,12 +309,11 @@
                         <tr>
                             <td><strong>Ana Beatriz</strong></td>
                             <td>anabastos.redes@gmail.com</td>
-                            <td>Certificação Cisco</td>
                             <td><span class="status-tag active">Ativo</span></td>
                             <td class="action-buttons">
-                                <button class="btn-icon btn-view" onclick="openProfileModal('modalCliente')"><i class="fas fa-eye"></i> Perfil</button>
-                                <button class="btn-icon btn-approve" title="Aprovar Pagamento Pendente"><i class="fas fa-check-circle"></i> Aprovar Pgto</button>
-                                <button class="btn-icon btn-edit"><i class="fas fa-edit"></i> Editar</button>
+                                <button class="btn-icon btn-view" onclick="openProfileModal('modalClientePerfil')" title="Ver Perfil (Cadastro)"><i class="fas fa-user"></i> Ver Perfil</button>
+                                <button class="btn-icon btn-view" onclick="openProfileModal('modalClienteHistorico')" title="Ver Histórico de Compras"><i class="fas fa-ticket-alt"></i> Eventos e Serviços</button>
+                                <button class="btn-icon btn-edit" onclick="alert('O banco de dados ainda não foi requerido no projeto.')"><i class="fas fa-edit"></i> Editar</button>
                             </td>
                         </tr>
                     </tbody>
@@ -305,6 +344,7 @@
                             <td>Aprovação de Pgto: Aluna Ana Beatriz</td>
                             <td><span class="status-tag pending">Em Aberto</span></td>
                             <td class="action-buttons">
+                                <button class="btn-icon btn-view" title="Visualizar Ticket"><i class="fas fa-eye"></i> Detalhes</button>
                                 <button class="btn-icon btn-edit" title="Abrir e Resolver Ticket"><i class="fas fa-external-link-alt"></i> Resolver</button>
                             </td>
                         </tr>
@@ -315,6 +355,20 @@
         </main>
     </div>
 
+    <div id="modalTipoParceiro" class="modal-overlay">
+        <div class="admin-profile-modal" style="text-align: center; max-width: 450px;">
+            <button class="close-modal" onclick="closeModals()"><i class="fas fa-times"></i></button>
+            <div class="modal-header-profile" style="border-bottom: none;">
+                <h2><i class="fas fa-question-circle" style="color: var(--theme-teal-main);"></i> Selecione o Tipo</h2>
+                <p>O cadastro ou edição será para qual perfil?</p>
+            </div>
+            <div style="display: flex; gap: 15px; margin-top: 20px;">
+                <button class="btn-search" style="flex: 1; height: 50px; background-color: var(--theme-teal-elegant);" onclick="alert('O banco de dados ainda não foi requerido no projeto.'); closeModals();"><i class="fas fa-hand-holding-usd"></i> Patrocinador</button>
+                <button class="btn-search" style="flex: 1; height: 50px; background-color: var(--theme-teal-main);" onclick="alert('O banco de dados ainda não foi requerido no projeto.'); closeModals();"><i class="fas fa-handshake"></i> Parceiro</button>
+            </div>
+        </div>
+    </div>
+
     <div id="modalAdminNovoEvento" class="modal-overlay">
         <div class="admin-profile-modal">
             <button class="close-modal" onclick="closeModals()"><i class="fas fa-times"></i></button>
@@ -322,33 +376,88 @@
                 <h2>Criar Novo Evento</h2>
                 <p>Crie um evento oficial ou em nome de um parceiro.</p>
             </div>
-            <form style="display: flex; flex-direction: column; gap: 15px;">
+            <form style="display: flex; flex-direction: column; gap: 15px; max-height: 70vh; overflow-y: auto; padding-right: 10px;">
+                
                 <div class="input-group-search">
-                    <label style="color: var(--theme-teal-elegant); font-weight: 600;">Publicar como (Autoria)</label>
-                    <select class="filter-select" style="border: 2px solid var(--theme-teal-light);">
-                        <option>WE Corp Oficial</option>
-                        <option>Cisco Academy</option>
-                    </select>
+                    <label>Imagem do Evento (Banner)</label>
+                    <input type="file" class="search-input" accept="image/*" style="padding: 9px;">
                 </div>
+
+                <div style="display: flex; gap: 15px;">
+                    <div class="input-group-search" style="flex: 1;">
+                        <label>Parceiro / Autoria</label>
+                        <select class="filter-select">
+                            <option>WE Corp Oficial</option>
+                            <option>Cisco Academy</option>
+                        </select>
+                    </div>
+                    <div class="input-group-search" style="flex: 1;">
+                        <label>Heads (Palestrantes/Instrutores)</label>
+                        <input type="text" class="search-input" placeholder="Nomes dos responsáveis">
+                    </div>
+                </div>
+
                 <div class="input-group-search">
                     <label>Título do Evento</label>
                     <input type="text" class="search-input" placeholder="Ex: Workshop de Inovação">
                 </div>
+
                 <div style="display: flex; gap: 15px;">
                     <div class="input-group-search" style="flex: 1;">
-                        <label>Data</label>
-                        <input type="date" class="search-input">
+                        <label>Categoria</label>
+                        <select class="filter-select">
+                            <option>Startups e Inovação</option>
+                            <option>Educação</option>
+                            <option>Certificação</option>
+                            <option>Tecnologia</option>
+                        </select>
                     </div>
                     <div class="input-group-search" style="flex: 1;">
                         <label>Valor do Ingresso (R$)</label>
                         <input type="number" class="search-input" placeholder="0.00">
                     </div>
                 </div>
-                <div class="input-group-search">
-                    <label>Descrição e Conteúdo</label>
-                    <textarea class="search-input" rows="4" style="resize: none;" placeholder="Descreva o evento..."></textarea>
+
+                <div style="display: flex; gap: 15px;">
+                    <div class="input-group-search" style="flex: 1;">
+                        <label>Data</label>
+                        <input type="date" class="search-input">
+                    </div>
+                    <div class="input-group-search" style="flex: 1;">
+                        <label>Horário</label>
+                        <input type="text" class="search-input" placeholder="Ex: 19:00 às 22:00">
+                    </div>
                 </div>
-                <button type="button" class="btn-search" style="margin-top: 10px;" onclick="alert('Evento criado com sucesso!'); closeModals();"><i class="fas fa-check"></i> Publicar Evento</button>
+
+                <div class="input-group-search">
+                    <label>Local do Evento</label>
+                    <input type="text" class="search-input" placeholder="Endereço físico ou link da plataforma">
+                </div>
+
+                <div class="input-group-search">
+                    <label>Sobre o Evento (Descrição Geral)</label>
+                    <textarea class="search-input" rows="3" style="resize: none;" placeholder="Descreva o propósito do evento..."></textarea>
+                </div>
+
+                <div class="input-group-search">
+                    <label>Conteúdo Abordado</label>
+                    <textarea class="search-input" rows="3" style="resize: none;" placeholder="Tópicos que serão ensinados ou discutidos..."></textarea>
+                </div>
+
+                <div class="input-group-search">
+                    <label>Certificação Inclusa?</label>
+                    <select class="filter-select" id="selectCertificacao" onchange="document.getElementById('boxDetalhesCertificacao').style.display = this.value === 'sim' ? 'flex' : 'none';">
+                        <option value="nao">Não</option>
+                        <option value="sim">Sim</option>
+                    </select>
+                </div>
+                
+                <div class="input-group-search" id="boxDetalhesCertificacao" style="display: none; margin-top: -5px;">
+                    <label style="color: var(--theme-teal-elegant);"><i class="fas fa-certificate"></i> Texto da Certificação (O que o aluno recebe?)</label>
+                    <textarea class="search-input" rows="3" style="resize: none;" placeholder="Ex: Ao finalizar o treinamento com 75% de presença, você receberá um certificado..."></textarea>
+                </div>
+
+                <button type="button" class="btn-search btn-block" onclick="alert('Evento criado com sucesso!'); closeModals();"><i class="fas fa-check"></i> Publicar Evento</button>
             </form>
         </div>
     </div>
@@ -390,7 +499,7 @@
                     <label>Descrição do Serviço</label>
                     <textarea class="search-input" rows="4" style="resize: none;" placeholder="Descreva o que está incluso..."></textarea>
                 </div>
-                <button type="button" class="btn-search" style="margin-top: 10px;" onclick="alert('Postagem de serviço criada com sucesso!'); closeModals();"><i class="fas fa-check"></i> Publicar Serviço</button>
+                <button type="button" class="btn-search btn-block" onclick="alert('Postagem de serviço criada com sucesso!'); closeModals();"><i class="fas fa-check"></i> Publicar Serviço</button>
             </form>
         </div>
     </div>
@@ -402,30 +511,173 @@
                 <h2>Cisco Academy <span class="status-tag active" style="font-size: 0.8rem;">Ativo</span></h2>
                 <p>Patrocinador Master</p>
             </div>
+            
+            <div class="detail-list" style="margin-bottom: 20px; background: #f8f9fa; padding: 15px; border-radius: 10px;">
+                <h4><i class="fas fa-id-card"></i> Dados Cadastrais</h4>
+                <ul style="list-style: none; padding: 0; font-size: 0.9rem;">
+                    <li><strong>CNPJ:</strong> 00.000.000/0001-00</li>
+                    <li><strong>E-mail de Contato:</strong> contato@cisco.academy.com</li>
+                    <li><strong>Telefone Comercial:</strong> (11) 9999-9999</li>
+                    <li><strong>Endereço:</strong> Av. Paulista, 1000 - São Paulo, SP</li>
+                </ul>
+            </div>
+
             <div class="profile-details-grid">
                 <div class="detail-card">
-                    <h4><i class="fas fa-file-contract"></i> Contrato</h4>
-                    <p><strong>Vigência:</strong> Jan/2026 a Dez/2027</p>
-                    <a href="#" style="color: var(--theme-teal-main);"><i class="fas fa-download"></i> Baixar PDF do Contrato</a>
+                    <h4><i class="fas fa-file-contract"></i> Contrato Vigente</h4>
+                    <p><strong>Início:</strong> Jan/2026</p>
+                    <p><strong>Fim:</strong> Dez/2027</p>
+                    <a href="#" style="color: var(--theme-teal-main); display: block; margin-top: 10px;"><i class="fas fa-download"></i> Baixar PDF do Contrato</a>
                 </div>
                 <div class="detail-card">
-                    <h4><i class="fas fa-chart-line"></i> Financeiro</h4>
-                    <p><strong>Investimento Anual:</strong> R$ 150.000,00</p>
-                    <p><strong>Repasses Realizados:</strong> 3/12</p>
+                    <h4><i class="fas fa-chart-line"></i> Performance (Admin)</h4>
+                    <p><strong>Total Investido:</strong> R$ 150.000,00</p>
+                    <p><strong>Eventos Realizados:</strong> 4 este ano</p>
                 </div>
-            </div>
-            <div style="text-align: right; margin-top: 20px;">
-                <button class="btn-search" style="background-color: var(--theme-teal-elegant);"><i class="fas fa-file-invoice"></i> Gerar Relatório Financeiro</button>
             </div>
         </div>
     </div>
 
-    <div id="modalCliente" class="modal-overlay">
+    <div id="modalAssinaturaAdmin" class="modal-overlay">
+        <div class="admin-profile-modal" style="max-width: 600px;">
+            <button class="close-modal" onclick="closeModals()"><i class="fas fa-times"></i></button>
+            <div class="modal-header-profile">
+                <h2><i class="fas fa-file-invoice-dollar" style="color: var(--theme-teal-main);"></i> Gestão de Assinatura</h2>
+                <p>Empresa: <strong>Cisco Academy</strong></p>
+            </div>
+
+            <div class="detail-card" style="margin-bottom: 20px;">
+                <h4>Status Atual do Plano</h4>
+                <p><strong>Plano Contratado:</strong> Patrocinador Master</p>
+                <p><strong>Status de Pagamento:</strong> <span class="pay-tag tag-pending" style="display: inline-block; margin-top: 5px;">Aguardando Pagamento da Parcela Atual</span></p>
+                
+                <button class="btn-search" style="background-color: #c62828; margin-top: 15px; padding: 6px 12px; font-size: 0.85rem;" onclick="confirm('Tem certeza que deseja DESATIVAR o plano deste parceiro? Os acessos dele serão suspensos.')">
+                    <i class="fas fa-ban"></i> Desativar Plano
+                </button>
+            </div>
+
+            <div class="detail-list">
+                <h4><i class="fas fa-history"></i> Histórico de Pagamentos e Trocas</h4>
+                <ul class="purchase-history" style="max-height: 200px; overflow-y: auto;">
+                    <li>
+                        <div>
+                            <strong>Pagamento Mês 04/2026</strong>
+                            <p style="font-size: 0.85rem; color: #666;">Valor: R$ 1.250,00 | Método: Boleto</p>
+                        </div>
+                        <span class="pay-tag tag-approved">🟢 Pago</span>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>UPGRADE DE PLANO</strong>
+                            <p style="font-size: 0.85rem; color: #666;">Mudou de Parceiro Básico para Patrocinador Master.</p>
+                        </div>
+                        <span class="pay-tag" style="background: #e0f7fa; color: #00838f;">Data: 10/01/2026</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalAssinaturaPrestador" class="modal-overlay">
+        <div class="admin-profile-modal" style="max-width: 600px;">
+            <button class="close-modal" onclick="closeModals()"><i class="fas fa-times"></i></button>
+            <div class="modal-header-profile">
+                <h2><i class="fas fa-file-invoice-dollar" style="color: var(--theme-teal-main);"></i> Gestão de Assinatura</h2>
+                <p>Empresa: <strong>TechSecurity Admin</strong></p>
+            </div>
+
+            <div class="detail-card" style="margin-bottom: 20px;">
+                <h4>Status Atual do Plano</h4>
+                <p><strong>Plano Contratado:</strong> Prestador Profissional (Ouro)</p>
+                <p><strong>Status de Pagamento:</strong> <span class="pay-tag tag-pending" style="display: inline-block; margin-top: 5px;">Aguardando Pagamento da Fatura Atual</span></p>
+                
+                <button class="btn-search" style="background-color: #c62828; margin-top: 15px; padding: 6px 12px; font-size: 0.85rem;" onclick="confirm('Tem certeza que deseja DESATIVAR o plano deste prestador? Os serviços dele serão suspensos da vitrine.')">
+                    <i class="fas fa-ban"></i> Desativar Plano
+                </button>
+            </div>
+
+            <div class="detail-list">
+                <h4><i class="fas fa-history"></i> Histórico de Pagamentos e Trocas</h4>
+                <ul class="purchase-history" style="max-height: 200px; overflow-y: auto;">
+                    <li>
+                        <div>
+                            <strong>Fatura Mês 04/2026</strong>
+                            <p style="font-size: 0.85rem; color: #666;">Valor: R$ 149,90 | Método: PIX</p>
+                        </div>
+                        <span class="pay-tag tag-approved">🟢 Pago</span>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>UPGRADE DE PLANO</strong>
+                            <p style="font-size: 0.85rem; color: #666;">Mudou de Prestador Básico para Profissional (Ouro).</p>
+                        </div>
+                        <span class="pay-tag" style="background: #e0f7fa; color: #00838f;">Data: 10/01/2026</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalNovoCliente" class="modal-overlay">
+        <div class="admin-profile-modal" style="max-width: 500px;">
+            <button class="close-modal" onclick="closeModals()"><i class="fas fa-times"></i></button>
+            <div class="modal-header-profile">
+                <h2>Cadastrar Novo Cliente</h2>
+                <p>Preencha os dados abaixo para registrar um usuário na plataforma.</p>
+            </div>
+            <form style="display: flex; flex-direction: column; gap: 15px;">
+                <div class="input-group-search">
+                    <label>Nome Completo</label>
+                    <input type="text" class="search-input" placeholder="Ex: João da Silva">
+                </div>
+                <div class="input-group-search">
+                    <label>E-mail</label>
+                    <input type="email" class="search-input" placeholder="exemplo@email.com">
+                </div>
+                <div style="display: flex; gap: 15px;">
+                    <div class="input-group-search" style="flex: 1;">
+                        <label>CPF</label>
+                        <input type="text" class="search-input" placeholder="000.000.000-00">
+                    </div>
+                    <div class="input-group-search" style="flex: 1;">
+                        <label>Telefone</label>
+                        <input type="text" class="search-input" placeholder="(00) 00000-0000">
+                    </div>
+                </div>
+                <div class="input-group-search">
+                    <label>Data de Cadastro</label>
+                    <input type="date" class="search-input">
+                </div>
+                <button type="button" class="btn-search btn-block" onclick="alert('Cliente cadastrado com sucesso!'); closeModals();"><i class="fas fa-check"></i> Salvar Cadastro</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="modalClientePerfil" class="modal-overlay">
+        <div class="admin-profile-modal" style="max-width: 500px;">
+            <button class="close-modal" onclick="closeModals()"><i class="fas fa-times"></i></button>
+            <div class="modal-header-profile">
+                <h2>Perfil do Cliente <span class="status-tag active" style="font-size: 0.8rem;">Ativa</span></h2>
+                <p>Informações de Cadastro do usuário.</p>
+            </div>
+            <div class="detail-list" style="background: #f8f9fa; padding: 20px; border-radius: 10px;">
+                <ul style="list-style: none; padding: 0; font-size: 0.95rem; line-height: 2;">
+                    <li><strong>Nome Completo:</strong> Ana Beatriz Gonçalves Bastos</li>
+                    <li><strong>E-mail:</strong> anabastos.redes@gmail.com</li>
+                    <li><strong>CPF:</strong> 000.000.000-00</li>
+                    <li><strong>Telefone:</strong> (61) 90000-0000</li>
+                    <li><strong>Data de Cadastro:</strong> 15 de Abril de 2026</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalClienteHistorico" class="modal-overlay">
         <div class="admin-profile-modal">
             <button class="close-modal" onclick="closeModals()"><i class="fas fa-times"></i></button>
             <div class="modal-header-profile">
-                <h2>Ana Beatriz <span class="status-tag active" style="font-size: 0.8rem;">Ativa</span></h2>
-                <p>anabastos.redes@gmail.com</p>
+                <h2>Histórico de Compras</h2>
+                <p>Cliente: <strong>Ana Beatriz</strong></p>
             </div>
             <div class="detail-list">
                 <h4><i class="fas fa-ticket-alt"></i> Eventos e Serviços Adquiridos</h4>
